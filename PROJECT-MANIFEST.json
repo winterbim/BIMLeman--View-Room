@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "rooms": 3,
   "clients": 24,
-  "files": 67,
+  "layers": ["domain", "session", "veyon-adapter", "desktop", "tauri"],
   "logo": "assets/brand/BIMLeman-View-Room-logo.png",
   "production": "Windows NSIS via GitHub Actions"
 }

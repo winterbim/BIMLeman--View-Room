@@ -10,6 +10,7 @@
       "version": "0.1.0",
       "dependencies": {
         "@bimleman/domain": "workspace:*",
+        "@bimleman/session": "workspace:*",
         "@bimleman/veyon-adapter": "workspace:*",
         "@tauri-apps/api": "^2.0.0",
         "react": "^19.0.0",
@@ -27,6 +28,14 @@
     "packages/domain": {
       "name": "@bimleman/domain",
       "version": "0.1.0",
+    },
+    "packages/session": {
+      "name": "@bimleman/session",
+      "version": "0.1.0",
+      "dependencies": {
+        "@bimleman/domain": "workspace:*",
+        "@bimleman/veyon-adapter": "workspace:*",
+      },
     },
     "packages/veyon-adapter": {
       "name": "@bimleman/veyon-adapter",
@@ -78,6 +87,8 @@
     "@bimleman/desktop": ["@bimleman/desktop@workspace:apps/desktop"],
 
     "@bimleman/domain": ["@bimleman/domain@workspace:packages/domain"],
+
+    "@bimleman/session": ["@bimleman/session@workspace:packages/session"],
 
     "@bimleman/veyon-adapter": ["@bimleman/veyon-adapter@workspace:packages/veyon-adapter"],
 

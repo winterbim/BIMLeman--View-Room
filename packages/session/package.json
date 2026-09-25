@@ -1,0 +1,10 @@
+{
+  "name": "@bimleman/session",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "@bimleman/domain": "workspace:*",
+    "@bimleman/veyon-adapter": "workspace:*"
+  }
+}

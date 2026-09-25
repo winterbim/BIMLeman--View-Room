@@ -1,6 +1,5 @@
 import { expect, test } from "bun:test";
 import { computers, computersForRoom, type Computer, type FeatureAction } from "@bimleman/domain";
-import { ClassroomController } from "./controller";
 import { MockVeyonAdapter } from "./mock-veyon-adapter";
 import { VeyonWindowsAdapter } from "./veyon-windows-adapter";
 import type { VeyonTransport } from "./types";
@@ -21,60 +20,6 @@ test("mock park exposes 24 computers in three rooms", async () => {
   for (const roomId of ["room-a", "room-b", "room-c"]) {
     expect(computersForRoom(roomId)).toHaveLength(8);
   }
-});
-
-test("mock workflows cover view, assist, lock, message, url and power", async () => {
-  const controller = new ClassroomController(new MockVeyonAdapter());
-  const online = byHost("SALLE-A-PC01");
-  const offline = byHost("SALLE-A-PC08");
-
-  expect((await controller.view(online)).ok).toBe(true);
-  expect((await controller.control(online)).state).toBe("controlled");
-  expect((await controller.lock(online)).state).toBe("locked");
-  expect((await controller.unlock(online)).state).toBe("online");
-
-  const secret = "CONSIGNE-SECRETE-NE-PAS-JOURNALISER";
-  const message = await controller.message([online], secret);
-  expect(message[0]?.ok).toBe(true);
-  expect(JSON.stringify(controller.audit)).not.toContain(secret);
-  expect(JSON.stringify(controller.audit)).not.toContain("data:image");
-  expect(JSON.stringify(controller.audit)).not.toContain("PRIVATE KEY");
-
-  expect((await controller.openWebsite([online], "https://example.test/cours"))[0]?.ok).toBe(true);
-  await expect(controller.openWebsite([online], "javascript:alert(1)")).rejects.toThrow(/http/);
-
-  const denied = await controller.lock(offline);
-  expect(denied.ok).toBe(false);
-  expect(denied.message).toContain("hors ligne");
-
-  await expect(controller.shutdown([online], false)).rejects.toThrow(/Confirmation/);
-  expect((await controller.shutdown([online], true))[0]?.state).toBe("offline");
-  expect((await controller.reboot([byHost("SALLE-A-PC02")], true))[0]?.state).toBe("offline");
-});
-
-test("room batch continues after an unreachable computer", async () => {
-  const controller = new ClassroomController(new MockVeyonAdapter());
-  const reports = await controller.lock(computersForRoom("room-a")[0] as Computer).then(async (first) => {
-    const room = computersForRoom("room-a");
-    const batch = await controller.message(room, "Interro dans 5 minutes");
-    return [first, ...batch];
-  });
-  expect(reports.some((report) => report.ok)).toBe(true);
-  expect(reports.some((report) => !report.ok)).toBe(true);
-});
-
-test("restricted teacher actions are refused and audited", async () => {
-  const adapter = new MockVeyonAdapter();
-  const controller = new ClassroomController(adapter, {
-    actorId: "invite",
-    displayName: "Invité",
-    authorizedRoomIds: ["room-a"]
-  });
-  const report = await controller.lock(byHost("SALLE-C-PC01"));
-  expect(report.ok).toBe(false);
-  expect(report.message).toContain("pas autorisé");
-  expect(adapter.stateOf(byHost("SALLE-C-PC01"))).toBe("online");
-  expect(controller.audit.at(-1)?.result).toBe("failure");
 });
 
 test("thumbnails are ephemeral simulated images", async () => {

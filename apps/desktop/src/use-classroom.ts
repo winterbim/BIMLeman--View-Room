@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { computers, rooms, type Computer, type ComputerState } from "@bimleman/domain";
-import { ClassroomController, MockVeyonAdapter, VeyonWindowsAdapter, type ActionReport } from "@bimleman/veyon-adapter";
+import { ClassroomController, type ActionReport } from "@bimleman/session";
+import { MockVeyonAdapter, VeyonWindowsAdapter } from "@bimleman/veyon-adapter";
 import { appendAudit, platformInfo, tauriTransport, type PlatformInfo } from "./tauri";
 
 export type RoomFilter = "all" | "room-a" | "room-b" | "room-c";
