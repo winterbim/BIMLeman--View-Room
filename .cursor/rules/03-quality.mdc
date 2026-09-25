@@ -1,0 +1,6 @@
+---
+description: Qualité, tests et gates
+alwaysApply: true
+---
+
+TypeScript strict. Rust sans unwrap dans les chemins d'exécution principaux. Tests sur le domaine et les permissions. Chaque action réseau a timeout et erreur utilisateur. Ne supprime pas un test pour obtenir du vert. Met à jour IMPLEMENTATION_STATUS.md après chaque gate.

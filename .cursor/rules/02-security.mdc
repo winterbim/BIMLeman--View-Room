@@ -1,0 +1,6 @@
+---
+description: Sécurité des postes et des secrets
+alwaysApply: true
+---
+
+Aucune clé privée dans git ou frontend. Aucun keylogging. Aucune capture persistante par défaut. Aucun accès Internet entrant vers les clients. Les fonctions de supervision s'appliquent uniquement aux PC administrés du centre. Les actions sensibles sont auditées sans enregistrer le contenu d'écran.

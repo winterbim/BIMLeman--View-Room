@@ -1,0 +1,15 @@
+{
+  "name": "bimleman-view-room",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "bun@1",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "bun --cwd apps/desktop dev",
+    "build": "bun --cwd apps/desktop build",
+    "tauri:dev": "bun --cwd apps/desktop tauri dev",
+    "tauri:build": "bun --cwd apps/desktop tauri build",
+    "test": "bun test",
+    "typecheck": "bun --cwd apps/desktop typecheck"
+  }
+}

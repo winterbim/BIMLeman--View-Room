@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "BIMLéman: Dev UI",
+      "type": "shell",
+      "command": "bun run dev",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "BIMLéman: Tests",
+      "type": "shell",
+      "command": "bun test",
+      "problemMatcher": []
+    },
+    {
+      "label": "BIMLéman: Quality gates",
+      "type": "shell",
+      "command": "./scripts/dev/check.sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "BIMLéman: Tauri Dev",
+      "type": "shell",
+      "command": "bun run tauri:dev",
+      "problemMatcher": []
+    }
+  ]
+}

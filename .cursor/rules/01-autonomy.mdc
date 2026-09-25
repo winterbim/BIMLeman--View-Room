@@ -1,0 +1,6 @@
+---
+description: Mode d'exécution autonome
+alwaysApply: true
+---
+
+Ne redemande jamais une décision déjà documentée. Planifie, implémente, teste, corrige et continue. En cas d'ambiguïté technique, choisis l'option la plus sûre et documente-la. Ne prétends jamais qu'un test matériel Windows a réussi sans exécution réelle.

@@ -1,0 +1,6 @@
+---
+description: Build Windows
+alwaysApply: true
+---
+
+Le build de production de référence est GitHub Actions sous Windows. Tauri produit un installateur NSIS .exe. Le cross-build Linux peut servir de test secondaire mais ne remplace pas la CI Windows.

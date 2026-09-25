@@ -1,0 +1,6 @@
+---
+description: Architecture et décisions immuables de BIMLéman View Room
+alwaysApply: true
+---
+
+Produit: BIMLéman View Room. Développement Linux, production Windows. Tauri 2 + React + TypeScript + Bun. Veyon est le moteur distant. 24 PC Windows = 3 salles x 8. Ne pas réinventer VNC/RDP. Utiliser MockAdapter sous Linux et VeyonAdapter sous Windows.

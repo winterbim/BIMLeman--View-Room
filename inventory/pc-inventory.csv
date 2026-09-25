@@ -1,0 +1,25 @@
+﻿Room;RoomCode;Seat;DesiredHostname;HostAddress;IPv4;MAC;Status;Notes
+Salle A;A;1;SALLE-A-PC01;SALLE-A-PC01;;;A inventorier;
+Salle A;A;2;SALLE-A-PC02;SALLE-A-PC02;;;A inventorier;
+Salle A;A;3;SALLE-A-PC03;SALLE-A-PC03;;;A inventorier;
+Salle A;A;4;SALLE-A-PC04;SALLE-A-PC04;;;A inventorier;
+Salle A;A;5;SALLE-A-PC05;SALLE-A-PC05;;;A inventorier;
+Salle A;A;6;SALLE-A-PC06;SALLE-A-PC06;;;A inventorier;
+Salle A;A;7;SALLE-A-PC07;SALLE-A-PC07;;;A inventorier;
+Salle A;A;8;SALLE-A-PC08;SALLE-A-PC08;;;A inventorier;
+Salle B;B;1;SALLE-B-PC01;SALLE-B-PC01;;;A inventorier;
+Salle B;B;2;SALLE-B-PC02;SALLE-B-PC02;;;A inventorier;
+Salle B;B;3;SALLE-B-PC03;SALLE-B-PC03;;;A inventorier;
+Salle B;B;4;SALLE-B-PC04;SALLE-B-PC04;;;A inventorier;
+Salle B;B;5;SALLE-B-PC05;SALLE-B-PC05;;;A inventorier;
+Salle B;B;6;SALLE-B-PC06;SALLE-B-PC06;;;A inventorier;
+Salle B;B;7;SALLE-B-PC07;SALLE-B-PC07;;;A inventorier;
+Salle B;B;8;SALLE-B-PC08;SALLE-B-PC08;;;A inventorier;
+Salle C;C;1;SALLE-C-PC01;SALLE-C-PC01;;;A inventorier;
+Salle C;C;2;SALLE-C-PC02;SALLE-C-PC02;;;A inventorier;
+Salle C;C;3;SALLE-C-PC03;SALLE-C-PC03;;;A inventorier;
+Salle C;C;4;SALLE-C-PC04;SALLE-C-PC04;;;A inventorier;
+Salle C;C;5;SALLE-C-PC05;SALLE-C-PC05;;;A inventorier;
+Salle C;C;6;SALLE-C-PC06;SALLE-C-PC06;;;A inventorier;
+Salle C;C;7;SALLE-C-PC07;SALLE-C-PC07;;;A inventorier;
+Salle C;C;8;SALLE-C-PC08;SALLE-C-PC08;;;A inventorier;
