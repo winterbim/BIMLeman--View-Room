@@ -1,5 +1,30 @@
 # Implementation Status
 
+## Livraison native demandée le 15 octobre 2026 — NON VALIDÉE POUR PRODUCTION
+
+Cette demande C++/Qt prévaut sur l'historique Tauri ci-dessous.
+Travail sur `feature/veyon-native-bimleman`, aucune fusion dans main.
+
+- Cause initiale prouvée : module additionnel `qtsvg` inexistant dans le catalogue
+  demandé ; Qt 6.8.2 et l'architecture demandée existent. QCA/VNC/OpenSSL et
+  MinGW manquaient aussi à l'ancienne chaîne.
+- Dépendances et sources verrouillées ; branding des vraies ressources natives,
+  splash existant, fenêtre principale, zoom, diaporama et accès distant.
+- Première compilation de `veyon-master.exe` prouvée dans le run 38749376708,
+  avant échec d'un plugin UltraVNC. Correctif du compteur inutilisé poussé ;
+  aucune désactivation de `-Werror`.
+- Assemblage du runtime et tests d'installation/retour arrière Windows en cours.
+- Version du PC client INCONNUE : candidat basé sur Veyon 4.11.3.0 seulement.
+  Aucun test matériel client réussi n'est revendiqué.
+- Distribution de l'installateur bloquée par défaut tant que les droits
+  commerciaux Interception ne sont pas clarifiés. La recette client est une
+  seconde porte indépendante ; la commande d'installation refuse sans validation.
+
+Rapport et procédure : [native-update/README.md](native-update/README.md).
+Preuves : [native-update/evidence/DIAGNOSTIC.md](native-update/evidence/DIAGNOSTIC.md).
+
+## Historique — les états ci-dessous ne certifient pas cette livraison native
+
 Mise à jour après les gates exécutés sur cette machine Linux le 25 septembre 2026.
 
 | Gate | État | Note |
@@ -27,14 +52,3 @@ Mise à jour après les gates exécutés sur cette machine Linux le 25 septembre
 - Installateur NSIS `.exe` : Tauri doit le produire sur Windows. Le workflow `.github/workflows/windows-release.yml` le fera sur un tag `v*` ou via `workflow_dispatch`.
 - Voir, Aider, Figer, message, URL, redémarrage et extinction réels : ils appellent Veyon. Aucun `veyon-wcli.exe` ni PC élève n'est disponible ici.
 - Pare-feu, import de clé et test TCP 11100 : PowerShell validé statiquement, pas exécuté sur Windows.
-
-## Mission native C++/Qt — 15 octobre 2026 (en cours)
-
-La demande explicite de l'utilisateur remplace le parcours Tauri pour cette livraison.
-Cause prouvée du run 38740359022 : `qtsvg` demandé comme module additionnel Qt,
-alors qu'il appartient aux archives de base. Qt 6.8.2 existe. Le workflow ignorait
-aussi QCA, OpenSSL/VNC, MinGW et Core5Compat requis par les sources natives.
-Chaîne corrigée : Windows 2022, MinGW64, dépendances MSYS2 verrouillées par version
-et SHA256, Veyon v4.11.3 au commit 0c629d9931810a5974038fc1a207d52fbd0e65f6.
-Version client INCONNUE : candidat uniquement, compatibilité non garantie.
-Build, démarrage, installation/désinstallation et réseau client restent à prouver.

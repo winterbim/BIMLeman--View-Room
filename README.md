@@ -1,5 +1,10 @@
 # BIMLéman View Room
 
+Sur la branche `feature/veyon-native-bimleman`, la livraison demandée est le véritable
+Veyon Master C++/Qt personnalisé. Voir [la livraison native et ses portes de validation](native-update/README.md)
+et [ses preuves](native-update/evidence/DIAGNOSTIC.md). L’historique Tauri ci-dessous
+ne constitue pas la livraison de cette mission.
+
 **BIMLéman View Room** est une application de supervision pédagogique destinée à un centre de formation équipé de **24 PC Windows répartis dans 3 salles de 8 postes**.
 
 Le projet est pensé pour être **développé sous Linux avec Cursor**, puis compilé en application Windows via une CI Windows. Le moteur de contrôle distant est **Veyon** : BIMLéman View Room apporte l'expérience utilisateur, les salles, l'inventaire, les permissions, l'audit et l'orchestration.
