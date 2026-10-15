@@ -1,0 +1,10 @@
+{
+  "Master": "C:\\Program Files\\Veyon\\veyon-master.exe",
+  "Directory": "C:\\Program Files\\Veyon",
+  "Version": "4.11.3.0",
+  "DisplayVersion": "4.11.3",
+  "SHA256": "D42A6A880F8B575F6D54C40A099992377BDE66E0C8906F6B08F02B8BB363540E",
+  "ServiceStatus": "Running",
+  "ProgramData": "C:\\ProgramData\\Veyon",
+  "UserData": "C:\\Users\\runneradmin\\AppData\\Roaming\\Veyon"
+}

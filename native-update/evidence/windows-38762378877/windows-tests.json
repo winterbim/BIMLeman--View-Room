@@ -1,0 +1,17 @@
+{
+  "embeddedIcon": "MATCHED",
+  "splash": "PASS",
+  "officialMasterReopened": "PASS",
+  "signed": false,
+  "title": "PASS",
+  "uninstall": "PASS",
+  "clientValidated": false,
+  "sharedDataPreserved": "PASS",
+  "nativeStartup": "PASS",
+  "serviceUnchanged": "PASS",
+  "safePilotWrapper": "PASS",
+  "originalFilesUnchanged": "PASS",
+  "clientVersionDeclared": "4.11.3",
+  "clientNetwork": "PENDING-HARDWARE",
+  "installation": "PASS"
+}

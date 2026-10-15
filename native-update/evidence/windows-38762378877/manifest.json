@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "product": "BIMLéman View Room",
+  "native": true,
+  "upstreamVersion": "4.11.3",
+  "commit": "fe9f2d92e182d9d885f107834fe37f1863914b65",
+  "buildId": "4.11.3-fe9f2d92",
+  "windowsValidated": true,
+  "clientValidated": false,
+  "files": {
+    "BIMLeman-4.11.3-fe9f2d92-setup.exe": "c3a72b6d060dab2c616d5c1eae3e648f6a478463101cac43b21652b85840a7d5",
+    "Get-VeyonInstallation.ps1": "821d99b7703d589822891a39aa5c51a9afe6e51ffd6baa03009877d3beee7b61",
+    "Install-Safe.ps1": "91906bcc83ec4fad3d56c3ae1f191dbd059c36b0d1015c52a3bcbd2664fd5d3f",
+    "Uninstall-Safe.ps1": "75aa2b9af33a6d6c2109792cd41a2556be181181fdb0ece285a8f55a9dd08cdb"
+  },
+  "redistributionAuthorized": true,
+  "redistributionScope": "non-commercial",
+  "sources": {
+    "artifact": "BIMLeman-Native-Veyon-Sources",
+    "runUrl": "https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38762378877",
+    "files": {
+      "BIMLeman-4.11.3-fe9f2d92-dependency-sources.tar.gz": "8050337863cc38da2ecc552d33d9a624ec59eeb96969442c22c2a78f46e6e26e",
+      "BIMLeman-4.11.3-fe9f2d92-sources.tar.gz": "53d51c04f5195ff02771a58ba55ae4b79f42a9ce344e0a51e34cabe501ebf7e8"
+    }
+  },
+  "installer": "BIMLeman-4.11.3-fe9f2d92-setup.exe",
+  "signed": false
+}

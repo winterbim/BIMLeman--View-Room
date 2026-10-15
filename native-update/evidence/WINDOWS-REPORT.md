@@ -1,5 +1,8 @@
 # Recette technique Windows — 15 octobre 2026
 
+> Rapport historique du premier run réussi, avant confirmation de version et
+> d'usage non commercial. État courant : [livraison pilote](PILOT-DELIVERY.md).
+
 **BUILD ET RECETTE AUTOMATISÉE : PASS. LIVRAISON CLIENT : BLOQUÉE.**
 
 - Run : https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38754270228

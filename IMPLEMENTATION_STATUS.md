@@ -10,22 +10,25 @@ Travail sur `feature/veyon-native-bimleman`, aucune fusion dans main.
   MinGW manquaient aussi à l'ancienne chaîne.
 - Dépendances et sources verrouillées ; branding des vraies ressources natives,
   splash existant, fenêtre principale, zoom, diaporama et accès distant.
-- Compilation complète et recette automatisée Windows **PASS** : run 38754270228,
-  commit 75fb1886. EXE natif x64 réel, icône PE comparée, titre/splash vérifiés,
-  38 fonctions chargées. Installateur NSIS de 33 005 345 octets exécuté.
+- Compilation complète et recette automatisée Windows **PASS** : run 38762378877,
+  commit fe9f2d92. EXE natif x64 réel, icône PE comparée, titre/splash vérifiés,
+  38 fonctions chargées. Installateur NSIS de 33 001 999 octets exécuté.
+- Script pilote réel **PASS** sur le runner : sauvegardes privées et clés éphémères
+  externes vérifiées, installation parallèle et retour arrière répétés. Détection
+  numérique PE 4.11.3.0 vérifiée, distincte de la version texte 4.11.3.
 - Désinstallation et retour au Master officiel testés sur le runner jetable :
   fichiers et état du service de référence inchangés, fenêtre officielle rouverte.
   La restauration de paramètres et clés réels chez le client reste non testée.
 - Version déclarée du PC client : 4.11.3 ; révision 4.11.3.0 contrôlée à l'installation.
   Aucun test matériel client réussi n'est revendiqué.
 - Usage strictement non commercial confirmé par le demandeur le 15 octobre 2026.
-  Diffusion pilote préparée sous les conditions non commerciales d'Interception ;
+  Diffusion pilote publiée sous les conditions non commerciales d'Interception ;
   aucune autorisation commerciale revendiquée. Sources et licences accompagnent
   les binaires. La recette client reste une porte indépendante : seule l'option
   explicite `-Pilot` autorise la recette parallèle avant sa validation.
 
 Rapport et procédure : [native-update/README.md](native-update/README.md).
-Recette technique : [native-update/evidence/WINDOWS-REPORT.md](native-update/evidence/WINDOWS-REPORT.md).
+Recette technique : [native-update/evidence/PILOT-DELIVERY.md](native-update/evidence/PILOT-DELIVERY.md).
 Diagnostic : [native-update/evidence/DIAGNOSTIC.md](native-update/evidence/DIAGNOSTIC.md).
 
 ## Historique — les états ci-dessous ne certifient pas cette livraison native

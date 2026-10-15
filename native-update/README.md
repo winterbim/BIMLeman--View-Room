@@ -6,12 +6,17 @@ legacy n'est plus déclenché par les modifications natives.
 
 ## Résultat vérifié
 
-La compilation native complète, le packaging NSIS et la recette automatisée
-sur Windows 2022 ont réussi dans le [run 38754270228](https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38754270228).
-Le [rapport avec captures et limites](evidence/WINDOWS-REPORT.md) distingue cette
-réussite technique de la recette client. Le demandeur a ensuite confirmé Veyon
-4.11.3 et un usage strictement non commercial. Une nouvelle livraison pilote
-est préparée dans ce cadre ; la recette du réseau client reste à réaliser.
+La compilation native complète, le packaging NSIS, le script pilote avec sauvegarde
+privée et le retour arrière sur Windows 2022 ont réussi dans le
+[run 38762378877](https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38762378877).
+Le [rapport avec captures et limites](evidence/PILOT-DELIVERY.md) distingue cette
+réussite technique de la recette client. Le demandeur a confirmé Veyon 4.11.3 et
+un usage strictement non commercial. Le candidat et ses sources sont publiés
+dans les artefacts de ce run ; la recette du réseau client reste à réaliser.
+La [préversion GitHub](https://github.com/winterbim/BIMLeman--View-Room/releases/tag/native-v4.11.3-fe9f2d92-pilot)
+conserve aussi les binaires, sources, preuves et empreintes.
+La [commande PowerShell unique](evidence/INSTALL-PILOT.md) démarre l'installation
+pilote avec les contrôles et la sauvegarde préalables.
 
 ## Sources et compilation
 
