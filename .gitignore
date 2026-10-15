@@ -16,3 +16,10 @@ apps/desktop/src-tauri/gen/
 deploy/common/connectivity-report.csv
 deploy/common/pilot-report.csv
 deploy/common/collected/
+__pycache__/
+native-build/
+native-output/
+native-packages/
+native-install/
+upstream-veyon/
+interception/

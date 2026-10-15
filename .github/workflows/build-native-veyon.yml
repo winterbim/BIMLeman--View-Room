@@ -2,50 +2,71 @@ name: Build BIMLeman Native Veyon Master
 on:
   push:
     branches: [feature/veyon-native-bimleman]
-    paths:
-      - 'native-update/prepare_native.py'
-      - '.github/workflows/build-native-veyon.yml'
+    paths: ['native-update/**', 'assets/brand/**', '.github/workflows/build-native-veyon.yml']
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: native-veyon-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
+    timeout-minutes: 60
+    env:
+      CI_COMMIT_TAG: v4.11.3
+      VEYON_SOURCE: upstream-veyon
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Veyon build prerequisites
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Checkout pinned native sources
         shell: pwsh
         run: |
-          choco install ninja cmake -y --no-progress
-          python -m pip install Pillow
-      - name: Checkout Veyon
-        shell: pwsh
-        run: |
-          git clone --recurse-submodules --depth 1 https://github.com/veyon/veyon.git upstream-veyon
-      - name: Prepare BIMLeman native branding
-        shell: pwsh
-        run: |
-          python native-update/prepare_native.py --source upstream-veyon --logo assets/brand/BIMLeman-View-Room-logo.png --report native-update/native-branding-report.json
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4
+          $ErrorActionPreference = 'Stop'
+          git clone https://github.com/veyon/veyon.git upstream-veyon
+          if ($LASTEXITCODE) { throw 'Veyon clone failed' }
+          git -C upstream-veyon checkout --detach 0c629d9931810a5974038fc1a207d52fbd0e65f6
+          if ($LASTEXITCODE) { throw 'Veyon revision missing' }
+          git -C upstream-veyon submodule update --init --recursive --depth 1
+          if ($LASTEXITCODE) { throw 'Veyon submodule failure' }
+          git clone https://github.com/oblitum/Interception.git interception
+          if ($LASTEXITCODE) { throw 'Interception clone failed' }
+          git -C interception checkout --detach 39eecbbc46a52e0402f783b872ef62b0254a896a
+          if ($LASTEXITCODE) { throw 'Interception revision missing' }
+      - uses: msys2/setup-msys2@ec48f7c5447b3140e2b088413ae3a55687bccb6e # v2
         with:
-          version: '6.8.2'
-          arch: win64_msvc2022_64
-          cache: true
-          modules: 'qtsvg'
-      - name: Configure native Veyon
+          msystem: MINGW64
+          update: false
+          cache: false
+      - name: Fetch checksum-locked Qt and native dependencies
         shell: pwsh
-        run: |
-          cmake -S upstream-veyon -B native-build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$env:Qt6_DIR"
-      - name: Compile native Veyon Master
+        run: ./native-update/Install-BuildDependencies.ps1
+      - name: Install locked packages
+        shell: msys2 {0}
+        run: pacman -U --noconfirm native-packages/*.pkg.tar.zst
+      - name: Build real Veyon Master and package native application
+        shell: msys2 {0}
+        run: bash native-update/build.sh
+      - name: Test isolated Windows installation and rollback
         shell: pwsh
-        run: cmake --build native-build --config Release --target veyon-master --parallel 2
-      - name: Upload native binary and diagnostics
+        run: ./native-update/Test-NativeInstaller.ps1
+      - name: Upload native installer, runtime and corresponding sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: BIMLeman-Native-Veyon-Candidate
+          path: |
+            native-output/*setup.exe
+            native-output/*sources.tar.gz
+            native-output/manifest.json
+            native-output/Install-Safe.ps1
+            native-output/Uninstall-Safe.ps1
+          if-no-files-found: error
+      - name: Preserve complete build diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: BIMLeman-Native-Veyon-Build
+          name: BIMLeman-Native-Veyon-Evidence
           path: |
-            native-update/native-branding-report.json
-            native-build/**/veyon-master.exe
+            native-output/evidence/
+            native-build/CMakeCache.txt
+            native-build/CMakeFiles/CMakeConfigureLog.yaml
           if-no-files-found: warn

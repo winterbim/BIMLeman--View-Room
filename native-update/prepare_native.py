@@ -1,40 +1,100 @@
 #!/usr/bin/env python3
-"""Prepare a native Veyon Master rebrand. Fail closed on unrecognized source trees."""
+"""BIMLéman modifications, 2026-10-15, GPL-2.0-or-later like upstream.
+Only reviewed v4.11.3 files are patched. Settings/protocol/legal resources stay intact.
+"""
+import argparse
+import hashlib
+import json
 from pathlib import Path
-import argparse, re, shutil, sys, json
-p=argparse.ArgumentParser()
-p.add_argument("--source",required=True)
-p.add_argument("--logo",required=True)
-p.add_argument("--report",required=True)
-a=p.parse_args()
-root=Path(a.source).resolve()
-logo=Path(a.logo).resolve()
-assert root.is_dir() and logo.is_file()
-master=root/"master"
-if not master.is_dir():
-    raise SystemExit("STOP: Veyon source tree has no master/ directory")
-# Only native UI text; leave protocol, settings, service, translation keys, and licensing untouched.
-changes=[]
-for file in master.rglob("*"):
-    if not file.is_file() or file.suffix.lower() not in {".cpp",".h",".ui",".rc",".qrc"}:continue
-    raw=file.read_bytes()
-    if b"\x00" in raw:continue
-    try: src=raw.decode("utf-8")
-    except UnicodeDecodeError:continue
-    out=src
-    for old,new in [("Veyon Master","BIMLéman View Room"),("Veyon master","BIMLéman View Room")]:
-        out=out.replace(old,new)
-    if out!=src:
-        file.write_text(out,encoding="utf-8")
-        changes.append({"path":str(file.relative_to(root)),"count":sum(src.count(x) for x in ["Veyon Master","Veyon master"])})
-# Do not replace icons by filename guessing: inspect upstream resource references first.
-images=[]
-for file in master.rglob("*"):
-    if file.is_file() and file.suffix.lower() in {".png",".svg",".ico",".qrc"}:
-        images.append(str(file.relative_to(root)))
-report={"status":"REVIEW_REQUIRED","title_changes":changes,"master_resources":images,"logo":logo.name,
-"remaining_work":"Identify native Master icon and splash references; replace exact resources and validate Qt build before installer release."}
-Path(a.report).write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8")
-print(json.dumps(report,indent=2,ensure_ascii=False))
-if not changes:
-    raise SystemExit("STOP: no verified Master title strings found; upstream source needs review")
+from PIL import Image, ImageDraw, ImageFont
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument('--source', required=True)
+    p.add_argument('--logo', required=True)
+    p.add_argument('--report', required=True)
+    a = p.parse_args()
+    root = Path(a.source).resolve()
+    # Validate ALL patch anchors before writing anything.
+    edits = {
+        'master/src/MainWindow.ui': [
+            ('<string notr="true">Veyon Master</string>', '<string notr="true">BIMLéman View Room</string>'),
+            ('<iconset resource="../../core/resources/core.qrc">\n    <normaloff>:/core/icon64.png</normaloff>:/core/icon64.png</iconset>',
+             '<iconset resource="../resources/master.qrc">\n    <normaloff>:/master/bimleman-icon.png</normaloff>:/master/bimleman-icon.png</iconset>'),
+            ('<string>About Veyon</string>', '<string notr="true">À propos de BIMLéman View Room</string>')],
+        'master/resources/master.qrc': [('<file>splash.png</file>', '<file>splash.png</file>\n        <file>bimleman-icon.png</file>')],
+        'master/CMakeLists.txt': [('NAME Master', 'NAME Master\n\tDESCRIPTION "BIMLeman View Room"')],
+        'master/src/main.cpp': [
+            ('#include <QSplashScreen>', '#include <QSplashScreen>\n#include <QIcon>\n#include <QDir>\n#include <QFile>\n#include <QJsonDocument>\n#include <QJsonObject>\n#include <QTimer>\n#include <QCryptographicHash>'),
+            ('\tsplashScreen.show();', '''\tapp.setWindowIcon( QIcon( QStringLiteral(":/master/bimleman-icon.png") ) );
+\tconst bool selfTest = app.arguments().contains(QStringLiteral("--bimleman-self-test"));
+\tconst QString evidenceDir = qEnvironmentVariable("BIMLEMAN_EVIDENCE_DIR");
+\tif (selfTest && evidenceDir.isEmpty()) { return 2; }
+\tsplashScreen.show();
+\tapp.processEvents();
+\tif (selfTest) {
+\t\tQDir().mkpath(evidenceDir);
+\t\tsplashScreen.grab().save(evidenceDir + QStringLiteral("/splash.png"));
+\t}'''),
+            ('\treturn core.exec();', '''\tif (selfTest) {
+\t\tQTimer::singleShot(1500, &app, [&]() {
+\t\t\tauto window = masterCore.mainWindow();
+\t\t\tQJsonObject report;
+\t\t\treport.insert(QStringLiteral("title"), window->windowTitle());
+\t\t\treport.insert(QStringLiteral("version"), VeyonCore::versionString());
+\t\t\treport.insert(QStringLiteral("qt"), QString::fromLatin1(qVersion()));
+\t\t\treport.insert(QStringLiteral("iconLoaded"), !window->windowIcon().isNull());
+\t\t\treport.insert(QStringLiteral("splashLoaded"), !splashScreen.pixmap().isNull());
+\t\t\tfor (const auto& resource : {QStringLiteral("bimleman-icon.png"), QStringLiteral("splash.png")}) {
+\t\t\t\tQFile file(QStringLiteral(":/master/") + resource);
+\t\t\t\tif (!file.open(QIODevice::ReadOnly)) { app.exit(3); return; }
+\t\t\t\treport.insert(resource, QString::fromLatin1(QCryptographicHash::hash(file.readAll(), QCryptographicHash::Sha256).toHex()));
+\t\t\t}
+\t\t\tconst bool screenshot = window->grab().save(evidenceDir + QStringLiteral("/main-window.png"));
+\t\t\tQFile output(evidenceDir + QStringLiteral("/native-smoke.json"));
+\t\t\tconst bool ok = output.open(QIODevice::WriteOnly) && output.write(QJsonDocument(report).toJson()) > 0;
+\t\t\tapp.exit(ok && screenshot && window->windowTitle() == QStringLiteral("BIMLéman View Room") &&
+\t\t\t\t!window->windowIcon().isNull() && !splashScreen.pixmap().isNull() ? 0 : 4);
+\t\t});
+\t}
+\treturn core.exec();''')]
+    }
+    outputs = {}
+    for rel, replacements in edits.items():
+        src = (root / rel).read_text(encoding='utf-8')
+        for old, new in replacements:
+            if src.count(old) != 1:
+                raise SystemExit(f'STOP: unrecognized source: {rel}: {old[:70]!r}')
+            src = src.replace(old, new, 1)
+        outputs[rel] = src
+    logo = Image.open(a.logo).convert('RGBA')
+    icon = Image.new('RGBA', (256, 256), (255, 255, 255, 255))
+    thumb = logo.copy()
+    thumb.thumbnail((240, 240), Image.Resampling.LANCZOS)
+    icon.alpha_composite(thumb, ((256-thumb.width)//2, (256-thumb.height)//2))
+    splash = Image.new('RGB', (720, 400), '#ffffff')
+    thumb = logo.copy()
+    thumb.thumbnail((620, 230), Image.Resampling.LANCZOS)
+    splash.paste(thumb, ((720-thumb.width)//2, 24), thumb)
+    # Font shipped with Pillow is deterministic, avoiding a platform font dependency.
+    draw = ImageDraw.Draw(splash)
+    draw.text((360, 300), 'BIMLéman View Room', fill='#182f40', anchor='mm', font=ImageFont.load_default(size=34))
+    draw.text((360, 357), 'Chargement…', fill='#4b6272', anchor='mm', font=ImageFont.load_default(size=20))
+    for rel, out in outputs.items():
+        (root / rel).write_text(out, encoding='utf-8', newline='\n')
+    icon.save(root / 'master/data/veyon-master.ico', sizes=[(16,16),(24,24),(32,32),(48,48),(64,64),(128,128),(256,256)])
+    icon.save(root / 'master/resources/bimleman-icon.png')
+    splash.save(root / 'master/resources/splash.png')
+    files = list(outputs) + ['master/data/veyon-master.ico', 'master/resources/bimleman-icon.png', 'master/resources/splash.png']
+    report = {'status': 'PATCHED_NOT_RUNTIME_VALIDATED', 'upstreamVersion': '4.11.3',
+              'modified': {rel: hashlib.sha256((root/rel).read_bytes()).hexdigest() for rel in files},
+              'legal': 'COPYING, copyright, AboutDialog and all third-party notices preserved',
+              'settings': 'Veyon application/organization names and configuration paths unchanged'}
+    Path(a.report).parent.mkdir(parents=True, exist_ok=True)
+    Path(a.report).write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding='utf-8')
+    print(json.dumps(report, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()
