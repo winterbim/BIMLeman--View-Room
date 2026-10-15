@@ -4,6 +4,7 @@ Set-StrictMode -Version Latest
 if (-not [Environment]::Is64BitOperatingSystem -or -not [Environment]::Is64BitProcess) { throw 'PowerShell Windows x64 requis.' }
 $manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'manifest.json') -Raw | ConvertFrom-Json
 if ($manifest.schema -ne 1 -or -not $manifest.native -or -not $manifest.windowsValidated) { throw 'Candidat natif non validé sous Windows : installation refusée.' }
+if (-not $manifest.redistributionAuthorized) { throw 'Redistribution Interception non autorisée : installation refusée.' }
 if (-not $manifest.clientValidated -and -not $Pilot) { throw 'Recette client non validée. Installation de production refusée. Le mode -Pilot est réservé à la recette parallèle documentée.' }
 if ($manifest.buildId -notmatch '^4\.11\.3-[0-9a-f]{8}$' -or $manifest.installer -ne "BIMLeman-$($manifest.buildId)-setup.exe") { throw 'Identité du paquet invalide.' }
 foreach ($entry in $manifest.files.psobject.Properties) {

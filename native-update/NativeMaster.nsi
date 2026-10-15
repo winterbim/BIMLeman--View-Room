@@ -20,7 +20,7 @@ Function .onInit
   SetShellVarContext current
   ; Installation in a fresh versioned directory only. No Veyon installation is overwritten.
   ${If} ${FileExists} "$INSTDIR\*.*"
-    MessageBox MB_ICONSTOP "Le dossier candidat existe déjà. Désinstallez ce candidat avant de recommencer."
+    MessageBox MB_ICONSTOP "Le dossier candidat existe déjà. Désinstallez ce candidat avant de recommencer." /SD IDOK
     SetErrorLevel 10
     Abort
   ${EndIf}

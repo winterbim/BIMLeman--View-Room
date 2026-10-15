@@ -7,5 +7,7 @@ Licence GNU GPL version 2 ou ultérieure ; voir COPYING et le dialogue À propos
 Sources correspondantes et scripts : archives *sources.tar.gz jointes au candidat.
 Bibliothèques tierces : voir licenses/ et les archives de sources de dépendances.
 La licence propriétaire de l'ancien projet Tauri ne s'applique pas à cette dérivation.
-La bibliothèque utilisateur Interception est sous LGPL ; ses pilotes ne sont pas installés.
+Interception : licence annoncée LGPLv3 pour un usage non commercial ; usage commercial
+soumis aux conditions de son auteur. Redistribution commerciale non autorisée par défaut.
+Ses pilotes ne sont pas installés. Voir les licences exactes dans les sources jointes.
 Aucune marque, licence ou attribution juridique d'origine n'est supprimée.

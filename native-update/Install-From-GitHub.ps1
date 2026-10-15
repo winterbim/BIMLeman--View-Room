@@ -1,26 +1,32 @@
-# BIMLéman View Room — installation depuis GitHub Actions
-# N'altère pas le service ni la configuration Veyon.
+param([switch]$Pilot)
 $ErrorActionPreference = 'Stop'
+Set-StrictMode -Version Latest
 $repo = 'winterbim/BIMLeman--View-Room'
-$workflow = 'branding-update.yml'
+$workflow = 'build-native-veyon.yml'
 $branch = 'feature/veyon-native-bimleman'
-if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
-  throw 'GitHub CLI absent. Installez-le : winget install --id GitHub.cli -e'
-}
+if (-not (Get-Command gh -ErrorAction SilentlyContinue)) { throw 'GitHub CLI requis : winget install --id GitHub.cli -e ; puis gh auth login' }
 & gh auth status 2>$null | Out-Null
-if ($LASTEXITCODE -ne 0) { throw 'Connectez GitHub CLI avec : gh auth login' }
-$runs = & gh run list -R $repo -w $workflow -b $branch --limit 15 --json databaseId,conclusion,status,headSha,createdAt | ConvertFrom-Json
-$run = $runs | Where-Object { $_.status -eq 'completed' -and $_.conclusion -eq 'success' } | Sort-Object createdAt -Descending | Select-Object -First 1
-if (-not $run) { throw 'Aucun build Windows réussi disponible. Consultez les Actions GitHub avant toute installation.' }
-$dir = Join-Path $env:TEMP ('BIMLeman-Update-' + $run.databaseId)
-New-Item -ItemType Directory -Force -Path $dir | Out-Null
-& gh run download $run.databaseId -R $repo -n BIMLeman-View-Room-Update -D $dir
-if ($LASTEXITCODE -ne 0) { throw 'Téléchargement du build échoué.' }
-$installer = Join-Path $dir 'BIMLeman-View-Room-Update.exe'
-if (-not (Test-Path $installer)) { throw "Installateur introuvable : $installer" }
-Write-Host "Build GitHub : $($run.headSha)" -ForegroundColor Cyan
-Write-Host "SHA256 : $((Get-FileHash $installer -Algorithm SHA256).Hash)" -ForegroundColor Cyan
-Write-Host 'Ce paquet est un lanceur personnalisé, pas encore un fork intégral de Veyon Master.' -ForegroundColor Yellow
-$answer = Read-Host 'Lancer cette mise à jour ? (O/N)'
-if ($answer -notin @('O','o','oui','OUI')) { Write-Host 'Annulé.'; exit 0 }
-Start-Process -FilePath $installer -Wait
+if ($LASTEXITCODE -ne 0) { throw 'Authentification GitHub nécessaire : gh auth login' }
+$runsJson = & gh run list -R $repo -w $workflow -b $branch --limit 20 --json databaseId,conclusion,status,headSha,createdAt
+if ($LASTEXITCODE) { throw 'Lecture des builds GitHub impossible.' }
+$runs = @($runsJson | ConvertFrom-Json | Where-Object { $_.status -eq 'completed' -and $_.conclusion -eq 'success' } | Sort-Object createdAt -Descending)
+foreach ($run in $runs) {
+    $dir = Join-Path $env:TEMP ('BIMLemanNative-' + $run.databaseId + '-' + [guid]::NewGuid().ToString('N'))
+    New-Item -ItemType Directory -Path $dir | Out-Null
+    & gh run download $run.databaseId -R $repo -n BIMLeman-Native-Veyon-Candidate -D $dir 2>$null
+    if ($LASTEXITCODE -ne 0) { continue }
+    $manifestPath = Join-Path $dir 'manifest.json'
+    if (-not (Test-Path $manifestPath)) { continue }
+    $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    if ($manifest.commit -ne $run.headSha -or -not $manifest.native -or -not $manifest.windowsValidated -or -not $manifest.redistributionAuthorized) { continue }
+    if (-not $manifest.clientValidated -and -not $Pilot) { continue }
+    foreach ($entry in $manifest.files.psobject.Properties) {
+        if ([IO.Path]::GetFileName($entry.Name) -ne $entry.Name -or $entry.Name.Contains('..')) { throw 'Chemin invalide dans le manifeste.' }
+        $path = Join-Path $dir $entry.Name
+        if (-not (Test-Path $path) -or (Get-FileHash $path -Algorithm SHA256).Hash -ne $entry.Value) { throw "Somme SHA256 incorrecte : $($entry.Name)" }
+    }
+    Write-Host "Candidat natif vérifié : $($run.headSha) ; run $($run.databaseId)"
+    & (Join-Path $dir 'Install-Safe.ps1') -Pilot:$Pilot
+    return
+}
+throw 'Aucune livraison native autorisée et validée disponible. Installation refusée ; consultez le rapport et les preuves GitHub.'

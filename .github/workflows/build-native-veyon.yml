@@ -16,6 +16,7 @@ jobs:
     env:
       CI_COMMIT_TAG: v4.11.3
       VEYON_SOURCE: upstream-veyon
+      REDISTRIBUTION_AUTHORIZED: ${{ vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'authorized' }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Checkout pinned native sources
@@ -37,6 +38,10 @@ jobs:
           msystem: MINGW64
           update: false
           cache: false
+      - uses: actions/cache@v4
+        with:
+          path: native-packages
+          key: mingw64-${{ runner.os }}-${{ hashFiles('native-update/msys2-lock.json') }}
       - name: Fetch checksum-locked Qt and native dependencies
         shell: pwsh
         run: ./native-update/Install-BuildDependencies.ps1
@@ -50,6 +55,7 @@ jobs:
         shell: pwsh
         run: ./native-update/Test-NativeInstaller.ps1
       - name: Upload native installer, runtime and corresponding sources
+        if: vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'authorized'
         uses: actions/upload-artifact@v4
         with:
           name: BIMLeman-Native-Veyon-Candidate

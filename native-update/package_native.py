@@ -127,6 +127,7 @@ files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.iterdir
 manifest = {'schema': 1, 'product': 'BIMLéman View Room', 'native': True,
             'upstreamVersion': VERSION, 'commit': REVISION, 'buildId': BUILD_ID,
             'windowsValidated': False, 'clientValidated': False, 'files': files,
+            'redistributionAuthorized': os.environ.get('REDISTRIBUTION_AUTHORIZED') == 'true',
             'installer': f'BIMLeman-{BUILD_ID}-setup.exe', 'signed': False}
 (OUT/'manifest.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
 print('Native candidate staged. Windows tests must still validate it.')

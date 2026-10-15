@@ -1,11 +1,6 @@
-name: BIMLeman native launcher update
+name: LEGACY launcher (not the native product)
 on:
   workflow_dispatch:
-  push:
-    branches: [feature/veyon-native-bimleman]
-    paths:
-      - 'native-update/**'
-      - '.github/workflows/branding-update.yml'
 permissions:
   contents: read
 jobs:
