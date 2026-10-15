@@ -1,4 +1,3 @@
-!cd "${__FILEDIR__}"
 Unicode true
 !include "MUI2.nsh"
 Name "BIMLéman View Room"
