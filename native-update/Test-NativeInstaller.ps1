@@ -50,6 +50,14 @@ $icon = [Drawing.Icon]::ExtractAssociatedIcon($master)
 if (-not $icon) { throw 'No embedded Windows icon.' }
 $bitmap = $icon.ToBitmap()
 $bitmap.Save((Join-Path $evidence 'windows-extracted-icon.png'))
+$expectedIcon = [Drawing.Icon]::new((Join-Path $installed 'brand.ico'), $icon.Size)
+$expectedBitmap = $expectedIcon.ToBitmap()
+for ($x = 0; $x -lt $bitmap.Width; $x++) {
+    for ($y = 0; $y -lt $bitmap.Height; $y++) {
+        if ($bitmap.GetPixel($x,$y).ToArgb() -ne $expectedBitmap.GetPixel($x,$y).ToArgb()) { throw 'Embedded PE icon differs from BIMLeman icon.' }
+    }
+}
+$expectedBitmap.Dispose(); $expectedIcon.Dispose()
 $bitmap.Dispose(); $icon.Dispose()
 # Capture complete installed payload hashes before rollback.
 $payload = @(Get-ChildItem $installed -File -Recurse | ForEach-Object {
@@ -70,4 +78,4 @@ if (Test-Path $master) { throw 'Rollback left native Master installed.' }
 if (Get-Service VeyonService -ErrorAction SilentlyContinue) { throw 'Parallel installer unexpectedly created a service.' }
 $manifest.windowsValidated = $true
 $manifest | ConvertTo-Json -Depth 8 | Set-Content $manifestPath -Encoding UTF8
-@{ installation = 'PASS'; nativeStartup = 'PASS'; embeddedIcon = 'EXTRACTED'; title = 'PASS'; splash = 'PASS'; uninstall = 'PASS'; sharedDataPreserved = 'PASS'; serviceUnchanged = 'PASS'; clientNetwork = 'PENDING-HARDWARE'; clientVersion = 'UNKNOWN'; signed = $false } | ConvertTo-Json | Set-Content (Join-Path $evidence 'windows-tests.json') -Encoding UTF8
+@{ installation = 'PASS'; nativeStartup = 'PASS'; embeddedIcon = 'MATCHED'; title = 'PASS'; splash = 'PASS'; uninstall = 'PASS'; sharedDataPreserved = 'PASS'; serviceUnchanged = 'PASS'; clientNetwork = 'PENDING-HARDWARE'; clientVersion = 'UNKNOWN'; signed = $false } | ConvertTo-Json | Set-Content (Join-Path $evidence 'windows-tests.json') -Encoding UTF8

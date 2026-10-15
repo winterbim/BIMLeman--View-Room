@@ -39,13 +39,19 @@ jobs:
           msystem: MINGW64
           update: false
           cache: false
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
+        id: native-packages
         with:
           path: native-packages
           key: mingw64-${{ runner.os }}-${{ hashFiles('native-update/msys2-lock.json') }}
       - name: Fetch checksum-locked Qt and native dependencies
         shell: pwsh
         run: ./native-update/Install-BuildDependencies.ps1
+      - uses: actions/cache/save@v4
+        if: steps.native-packages.outputs.cache-hit != 'true'
+        with:
+          path: native-packages
+          key: mingw64-${{ runner.os }}-${{ hashFiles('native-update/msys2-lock.json') }}
       - name: Install locked packages
         shell: msys2 {0}
         run: pacman -U --noconfirm native-packages/*.pkg.tar.zst

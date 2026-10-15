@@ -45,8 +45,9 @@ for subdir, patterns in {
             raise SystemExit(f'Missing Qt/QCA runtime plugin {subdir}/{pattern}')
         for p in found:
             copy(p, STAGE/subdir/p.name)
-for p in Path('native-build/translations').glob('*.qm'):
-    copy(p, STAGE/'translations'/p.name)
+for folder in [Path('native-build/translations'), PREFIX/'share/qt6/translations']:
+    for p in folder.glob('*.qm'):
+        copy(p, STAGE/'translations'/p.name)
 # Preserve upstream shipped drivers and notices as files, with no installation/service action.
 shutil.copytree('upstream-veyon/3rdparty/interception', STAGE/'interception', dirs_exist_ok=True)
 copy(Path('upstream-veyon/3rdparty/ddengine/ddengine64.dll'), STAGE/'ddengine64.dll')
@@ -73,8 +74,11 @@ while True:
         if any(d.lower() == 'msys-2.0.dll' for d in deps):
             raise SystemExit(f'Non-native MSYS runtime dependency: {binary}')
         for dll in deps:
-            if dll.lower() in known and not (STAGE/known[dll.lower()].name).exists():
-                copy(known[dll.lower()], STAGE/known[dll.lower()].name)
+            if dll.lower() in known:
+                if not (STAGE/known[dll.lower()].name).exists():
+                    copy(known[dll.lower()], STAGE/known[dll.lower()].name)
+            elif not dll.lower().startswith(('api-ms-win-', 'ext-ms-win-')) and not (Path(os.environ['SystemRoot'])/'System32'/dll).exists() and not any(p.name.lower() == dll.lower() for p in STAGE.rglob('*.dll')):
+                raise SystemExit(f'Unresolved import {dll} required by {binary}')
 master_details = subprocess.check_output(['objdump', '-p', str(STAGE/'veyon-master.exe')], text=True)
 if not re.search(r'Subsystem\s+00000002', master_details):
     raise SystemExit('Master is not a Windows GUI PE executable')

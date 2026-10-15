@@ -18,6 +18,8 @@ def main():
     root = Path(a.source).resolve()
     # Validate ALL patch anchors before writing anything.
     edits = {
+        'core/CMakeLists.txt': [('target_compile_definitions(veyon-core PUBLIC _WIN32_WINNT=0x0602)',
+                                 'target_compile_definitions(veyon-core PUBLIC _WIN32_WINNT=0x0A00)')],
         'master/src/MainWindow.ui': [
             ('<string notr="true">Veyon Master</string>', '<string notr="true">BIMLéman View Room</string>'),
             ('<iconset resource="../../core/resources/core.qrc">\n    <normaloff>:/core/icon64.png</normaloff>:/core/icon64.png</iconset>',
@@ -77,10 +79,10 @@ def main():
     thumb = logo.copy()
     thumb.thumbnail((620, 230), Image.Resampling.LANCZOS)
     splash.paste(thumb, ((720-thumb.width)//2, 24), thumb)
-    # Font shipped with Pillow is deterministic, avoiding a platform font dependency.
+    # Bundled DejaVu Sans supports accents and gives identical typography on Windows/Linux.
     draw = ImageDraw.Draw(splash)
-    draw.text((360, 300), 'BIMLéman View Room', fill='#182f40', anchor='mm', font=ImageFont.load_default(size=34))
-    draw.text((360, 357), 'Chargement…', fill='#4b6272', anchor='mm', font=ImageFont.load_default(size=20))
+    draw.text((360, 300), 'BIMLéman View Room', fill='#182f40', anchor='mm', font=ImageFont.truetype(str(Path(__file__).parent/'fonts/DejaVuSans.ttf'), size=32))
+    draw.text((360, 357), 'Chargement…', fill='#4b6272', anchor='mm', font=ImageFont.truetype(str(Path(__file__).parent/'fonts/DejaVuSans.ttf'), size=20))
     for rel, out in outputs.items():
         (root / rel).write_text(out, encoding='utf-8', newline='\n')
     icon.save(root / 'master/data/veyon-master.ico', sizes=[(16,16),(24,24),(32,32),(48,48),(64,64),(128,128),(256,256)])

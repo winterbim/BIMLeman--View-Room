@@ -2,6 +2,7 @@ param([switch]$Pilot)
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 if (-not [Environment]::Is64BitOperatingSystem -or -not [Environment]::Is64BitProcess) { throw 'PowerShell Windows x64 requis.' }
+if ([Environment]::OSVersion.Version.Build -lt 17763) { throw 'Windows 10 1809 ou ultérieur requis par ce Qt.' }
 $manifest = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'manifest.json') -Raw | ConvertFrom-Json
 if ($manifest.schema -ne 1 -or -not $manifest.native -or -not $manifest.windowsValidated) { throw 'Candidat natif non validé sous Windows : installation refusée.' }
 if (-not $manifest.redistributionAuthorized) { throw 'Redistribution Interception non autorisée : installation refusée.' }
