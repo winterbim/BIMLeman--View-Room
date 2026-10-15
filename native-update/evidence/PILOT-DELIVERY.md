@@ -57,6 +57,9 @@ GitHub conserve également les neuf fichiers de livraison : installateur, trois
 scripts, manifeste, deux archives sources, archive de preuves et SHA256SUMS.
 Les deux archives téléchargées ont été comparées au manifeste ; elles contiennent
 les sources natives complètes et les **112** paquets sources de dépendances.
+Les neuf empreintes GitHub (digest serveur) ont été revérifiées après l'envoi
+complet de l'archive de dépendances de **1 020 539 099 octets** : elles
+concordent toutes avec `SHA256SUMS.txt` et le manifeste local.
 
 La recette réelle sur le PC formateur et un poste pilote autorisé reste obligatoire :
 annuaire, miniatures, authentification, visualisation, contrôle clavier/souris,
