@@ -18,6 +18,7 @@ def main():
     root = Path(a.source).resolve()
     # Validate ALL patch anchors before writing anything.
     edits = {
+        'cmake/modules/PchHelpers.cmake': [('_WIN32_WINNT=0x0602', '_WIN32_WINNT=0x0A00')],
         'core/CMakeLists.txt': [('target_compile_definitions(veyon-core PUBLIC _WIN32_WINNT=0x0602)',
                                  'target_compile_definitions(veyon-core PUBLIC _WIN32_WINNT=0x0A00)')],
         'master/src/MainWindow.ui': [

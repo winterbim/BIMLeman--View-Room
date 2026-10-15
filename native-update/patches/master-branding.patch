@@ -1,3 +1,15 @@
+diff --git a/cmake/modules/PchHelpers.cmake b/cmake/modules/PchHelpers.cmake
+index e0b40d2..c1e18e1 100644
+--- a/cmake/modules/PchHelpers.cmake
++++ b/cmake/modules/PchHelpers.cmake
+@@ -13,6 +13,6 @@ macro(add_pch_target TARGET_NAME HEADER)
+ 	target_link_libraries(${TARGET_NAME} PUBLIC Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::Concurrent Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Widgets)
+ 	target_precompile_headers(${TARGET_NAME} PUBLIC ${HEADER})
+ 	if(VEYON_BUILD_WINDOWS)
+-		target_compile_definitions(${TARGET_NAME} PUBLIC _WIN32_WINNT=0x0602)
++		target_compile_definitions(${TARGET_NAME} PUBLIC _WIN32_WINNT=0x0A00)
+ 	endif()
+ endmacro()
 diff --git a/core/CMakeLists.txt b/core/CMakeLists.txt
 index 9ce24c0..5cf6032 100644
 --- a/core/CMakeLists.txt
