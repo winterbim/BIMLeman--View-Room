@@ -50,3 +50,19 @@ formateur non exécutés. Interception annonce des conditions commerciales
 spécifiques ; l'autorisation de ce distributeur n'est pas disponible. La variable
 GitHub de redistribution reste absente. Ni main ni les services de l'école n'ont
 été modifiés. Le workflow legacy .NET ne se déclenche plus automatiquement.
+
+## Suite de la boucle de compilation
+
+| Run | Échec exact observé | Correction appliquée |
+| --- | --- | --- |
+| 38748531812 | `_WIN32_WINNT` défini deux fois (Windows 8 et 10), puis ordre Winsock incompatible sans PCH | Aligner les deux définitions CMake sur 0x0A00, rétablir le PCH officiel incluant winsock2.h en premier. |
+| 38749376708 | Master lié ; compteur UltraVNC `childCount` incrémenté mais jamais lu | Retirer ce compteur sans effet ; conserver les avertissements comme erreurs. |
+| 38750266782 | Anciennes définitions C de d3des.c refusées en C23 | Fixer C17, sans toucher au code cryptographique. GCC documente le passage à C23 par défaut depuis GCC 15 : https://gcc.gnu.org/gcc-15/porting_to.html . |
+| 38751561012 | Ligne lupdate estimée à 51 328 caractères ; QBitArray incomplet lors d'une substitution de template dans WebApiHttpServer.cpp | Fichier réponse lupdate documenté par Qt (https://doc.qt.io/qt-6/linguist-lupdate.html), inclusion explicite de QBitArray avant QtHttpServer. |
+| 38753007638 | Correctif WebAPI compilé ; lupdate échoue à 0xc0000135 après la correction de la ligne de commande | Inspection PE de lupdate.exe : dépendance Qt6Qml.dll absente. Ajouter le paquet qt6-declarative exact du même catalogue, verrouillé ; contrôler lupdate/lrelease avant compilation. |
+
+Le verrouillage courant contient **116 paquets**, environ 244 Mio téléchargés.
+L'ajout QML sert à Linguist ; l'application conserve le parcours natif C++/Qt.
+Les journaux complets et artefacts des runs sont accessibles dans GitHub Actions.
+La réussite du premier Master n'est pas présentée comme une réussite des tests
+GUI, du paquet complet ou du réseau client.
