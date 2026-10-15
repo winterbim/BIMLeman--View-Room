@@ -1,0 +1,2 @@
+# Generated Git patches retain upstream context indentation verbatim.
+native-update/patches/*.patch -whitespace

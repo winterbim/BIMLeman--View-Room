@@ -44,6 +44,9 @@ $smoke = Get-Content (Join-Path $evidence 'native-smoke.json') -Raw | ConvertFro
 $branding = Get-Content (Join-Path $evidence 'branding.json') -Raw | ConvertFrom-Json
 if ($smoke.title -ne 'BIMLéman View Room' -or -not $smoke.iconLoaded -or -not $smoke.splashLoaded) { throw 'Incorrect native branding at runtime.' }
 if ($smoke.'splash.png' -ne $branding.modified.'master/resources/splash.png' -or $smoke.'bimleman-icon.png' -ne $branding.modified.'master/resources/bimleman-icon.png') { throw 'Compiled resources differ from official branding.' }
+foreach ($feature in @('RemoteView','RemoteControl','ScreenLock','TextMessage')) {
+    if ($smoke.features -notcontains $feature) { throw "Native feature plugin not loaded: $feature" }
+}
 if ($smoke.version -notmatch '^4\.11\.3') { throw 'Wrong upstream version.' }
 Add-Type -AssemblyName System.Drawing
 $icon = [Drawing.Icon]::ExtractAssociatedIcon($master)

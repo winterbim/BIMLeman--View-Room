@@ -8,10 +8,11 @@ legacy n'est plus déclenché par les modifications natives.
 
 - Veyon v4.11.3 : `0c629d9931810a5974038fc1a207d52fbd0e65f6` et ses sous-modules.
 - Interception : `39eecbbc46a52e0402f783b872ef62b0254a896a` (bibliothèque utilisateur).
-- Windows 2022, MinGW64 ; versions et SHA256 complets dans `msys2-lock.json`.
+- Windows 2022, MinGW64 ; Windows 10 1809 ou ultérieur pour le candidat ; versions et SHA256 complets dans `msys2-lock.json`.
 - `build.sh` compile explicitement `veyon-master`, puis tous les autres composants
   et plugins natifs. `package_native.py` résout récursivement les imports DLL dans
   le seul préfixe verrouillé, inclut plateformes Qt, QCA/OpenSSL, traductions et licences.
+- Les fichiers modifiés portent une notice datée ; la police DejaVu Sans est fournie avec sa licence.
 - Aucune clé réelle, aucun identifiant du client dans les archives.
 - Écran de démarrage : le splash natif existant `master/resources/splash.png`.
 - Icône Windows : `master/data/veyon-master.ico` ; Qt : ressource dédiée au Master.

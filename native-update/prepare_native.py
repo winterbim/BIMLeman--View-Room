@@ -18,6 +18,10 @@ def main():
     root = Path(a.source).resolve()
     # Validate ALL patch anchors before writing anything.
     edits = {
+        'master/src/SlideshowPanel.cpp': [('Veyon Master – Slideshow', 'BIMLéman View Room – Slideshow')],
+        'master/src/ComputerZoomWidget.cpp': [('%1 - Veyon', '%1 - BIMLéman View Room'),
+                                            ('%1 - %2 - Veyon', '%1 - %2 - BIMLéman View Room')],
+        'plugins/remoteaccess/RemoteAccessWidget.cpp': [('%1 - Veyon Remote Access', '%1 - BIMLéman View Room'), ('%1 - %2 - Veyon Remote Access', '%1 - %2 - BIMLéman View Room')],
         'cmake/modules/PchHelpers.cmake': [('_WIN32_WINNT=0x0602', '_WIN32_WINNT=0x0A00')],
         'core/CMakeLists.txt': [('target_compile_definitions(veyon-core PUBLIC _WIN32_WINNT=0x0602)',
                                  'target_compile_definitions(veyon-core PUBLIC _WIN32_WINNT=0x0A00)')],
@@ -29,7 +33,7 @@ def main():
         'master/resources/master.qrc': [('<file>splash.png</file>', '<file>splash.png</file>\n        <file>bimleman-icon.png</file>')],
         'master/CMakeLists.txt': [('NAME Master', 'NAME Master\n\tDESCRIPTION "BIMLeman View Room"')],
         'master/src/main.cpp': [
-            ('#include <QSplashScreen>', '#include <QSplashScreen>\n#include <QIcon>\n#include <QDir>\n#include <QFile>\n#include <QJsonDocument>\n#include <QJsonObject>\n#include <QTimer>\n#include <QCryptographicHash>'),
+            ('#include <QSplashScreen>', '#include <QSplashScreen>\n#include <QIcon>\n#include <QDir>\n#include <QFile>\n#include <QJsonDocument>\n#include <QJsonObject>\n#include <QJsonArray>\n#include "FeatureManager.h"\n#include <QTimer>\n#include <QCryptographicHash>'),
             ('\tsplashScreen.show();', '''\tapp.setWindowIcon( QIcon( QStringLiteral(":/master/bimleman-icon.png") ) );
 \tconst bool selfTest = app.arguments().contains(QStringLiteral("--bimleman-self-test"));
 \tconst QString evidenceDir = qEnvironmentVariable("BIMLEMAN_EVIDENCE_DIR");
@@ -47,6 +51,9 @@ def main():
 \t\t\treport.insert(QStringLiteral("title"), window->windowTitle());
 \t\t\treport.insert(QStringLiteral("version"), VeyonCore::versionString());
 \t\t\treport.insert(QStringLiteral("qt"), QString::fromLatin1(qVersion()));
+\t\t\tQJsonArray features;
+\t\t\tfor (const auto& feature : VeyonCore::featureManager().features()) { features.append(feature.name()); }
+\t\t\treport.insert(QStringLiteral("features"), features);
 \t\t\treport.insert(QStringLiteral("iconLoaded"), !window->windowIcon().isNull());
 \t\t\treport.insert(QStringLiteral("splashLoaded"), !splashScreen.pixmap().isNull());
 \t\t\tfor (const auto& resource : {QStringLiteral("bimleman-icon.png"), QStringLiteral("splash.png")}) {
@@ -70,6 +77,18 @@ def main():
             if src.count(old) != 1:
                 raise SystemExit(f'STOP: unrecognized source: {rel}: {old[:70]!r}')
             src = src.replace(old, new, 1)
+        notice = 'Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.'
+        if rel.endswith(('.cpp', '.h')):
+            src = '// ' + notice + '\n' + src
+        elif rel.endswith(('.ui', '.qrc')):
+            comment = '<!-- ' + notice + ' -->\n'
+            if src.startswith('<?xml'):
+                first, remainder = src.split('\n', 1)
+                src = first + '\n' + comment + remainder
+            else:
+                src = comment + src
+        else:
+            src = '# ' + notice + '\n' + src
         outputs[rel] = src
     logo = Image.open(a.logo).convert('RGBA')
     icon = Image.new('RGBA', (256, 256), (255, 255, 255, 255))

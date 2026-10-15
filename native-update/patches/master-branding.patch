@@ -1,8 +1,13 @@
 diff --git a/cmake/modules/PchHelpers.cmake b/cmake/modules/PchHelpers.cmake
-index e0b40d2..c1e18e1 100644
+index e0b40d2..7cc7bc2 100644
 --- a/cmake/modules/PchHelpers.cmake
 +++ b/cmake/modules/PchHelpers.cmake
-@@ -13,6 +13,6 @@ macro(add_pch_target TARGET_NAME HEADER)
+@@ -1,3 +1,4 @@
++# Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ 
+ macro(add_pch_target TARGET_NAME HEADER)
+ 	add_library(${TARGET_NAME} STATIC ${HEADER})
+@@ -13,6 +14,6 @@ macro(add_pch_target TARGET_NAME HEADER)
  	target_link_libraries(${TARGET_NAME} PUBLIC Qt${QT_MAJOR_VERSION}::Core Qt${QT_MAJOR_VERSION}::Concurrent Qt${QT_MAJOR_VERSION}::Network Qt${QT_MAJOR_VERSION}::Widgets)
  	target_precompile_headers(${TARGET_NAME} PUBLIC ${HEADER})
  	if(VEYON_BUILD_WINDOWS)
@@ -11,10 +16,15 @@ index e0b40d2..c1e18e1 100644
  	endif()
  endmacro()
 diff --git a/core/CMakeLists.txt b/core/CMakeLists.txt
-index 9ce24c0..5cf6032 100644
+index 9ce24c0..257a4c8 100644
 --- a/core/CMakeLists.txt
 +++ b/core/CMakeLists.txt
-@@ -71,7 +71,7 @@ else()
+@@ -1,3 +1,4 @@
++# Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ include(WindowsBuildHelpers)
+ 
+ file(GLOB veyoncore_SOURCES
+@@ -71,7 +72,7 @@ else()
  endif()
  
  if(VEYON_BUILD_WINDOWS)
@@ -24,10 +34,15 @@ index 9ce24c0..5cf6032 100644
  
  if(WITH_PCH)
 diff --git a/master/CMakeLists.txt b/master/CMakeLists.txt
-index 328f023..5a5638c 100644
+index 328f023..80bc31e 100644
 --- a/master/CMakeLists.txt
 +++ b/master/CMakeLists.txt
-@@ -9,6 +9,7 @@ endif()
+@@ -1,3 +1,4 @@
++# Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ include(BuildVeyonApplication)
+ 
+ file(GLOB master_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.*)
+@@ -9,6 +10,7 @@ endif()
  
  build_veyon_application(veyon-master
  	NAME Master
@@ -4867,10 +4882,15 @@ literal 0
 HcmV?d00001
 
 diff --git a/master/resources/master.qrc b/master/resources/master.qrc
-index 2ca49ad..29387ee 100644
+index 2ca49ad..bd93243 100644
 --- a/master/resources/master.qrc
 +++ b/master/resources/master.qrc
-@@ -9,6 +9,7 @@
+@@ -1,3 +1,4 @@
++<!-- Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility. -->
+ <RCC>
+     <qresource prefix="/master">
+         <file>zoom-fit-best.png</file>
+@@ -9,6 +10,7 @@
          <file>host-service-error.png</file>
          <file>host-access-denied.png</file>
          <file>splash.png</file>
@@ -6835,11 +6855,40 @@ zLq({QR&>XHIfh2a@ZvpRsRz&vy||HmqDUV!7Lpt3!(0yEXu5EXdo5SdVw5lmRk?tV
 z-F0X~(<K7MW7`M~unLVJ2`3z!iCJ{7)AsL2k^kvS$bXstxv2j8^<>fL`X$j6xm;0u
 U-l+!AKp{|ir7mA4YZ>yt025Cz4*&oF
 
+diff --git a/master/src/ComputerZoomWidget.cpp b/master/src/ComputerZoomWidget.cpp
+index bf5a4a6..95df820 100644
+--- a/master/src/ComputerZoomWidget.cpp
++++ b/master/src/ComputerZoomWidget.cpp
+@@ -1,3 +1,4 @@
++// Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ /*
+  * ComputerZoomWidget.cpp - fullscreen preview widget
+  *
+@@ -141,11 +142,11 @@ void ComputerZoomWidget::updateComputerZoomWidgetTitle()
+ 
+ 	if (username.isEmpty())
+ 	{
+-		setWindowTitle(QStringLiteral("%1 - Veyon").arg(m_vncView->computerControlInterface()->computerName()));
++		setWindowTitle(QStringLiteral("%1 - BIMLéman View Room").arg(m_vncView->computerControlInterface()->computerName()));
+ 	}
+ 	else
+ 	{
+-		setWindowTitle(QStringLiteral( "%1 - %2 - Veyon").arg(username,
++		setWindowTitle(QStringLiteral( "%1 - %2 - BIMLéman View Room").arg(username,
+ 															  m_vncView->computerControlInterface()->computerName()));
+ 	}
+ }
 diff --git a/master/src/MainWindow.ui b/master/src/MainWindow.ui
-index 6b92b6f..e02c660 100644
+index 6b92b6f..88df32c 100644
 --- a/master/src/MainWindow.ui
 +++ b/master/src/MainWindow.ui
-@@ -11,11 +11,11 @@
+@@ -1,4 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
++<!-- Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility. -->
+ <ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+@@ -11,11 +12,11 @@
     </rect>
    </property>
    <property name="windowTitle">
@@ -6854,7 +6903,7 @@ index 6b92b6f..e02c660 100644
    </property>
    <widget class="QWidget" name="centralWidget">
     <layout class="QHBoxLayout" name="centralLayout">
-@@ -110,7 +110,7 @@
+@@ -110,7 +111,7 @@
          </rect>
         </property>
         <property name="toolTip">
@@ -6863,11 +6912,34 @@ index 6b92b6f..e02c660 100644
         </property>
         <property name="text">
          <string>About</string>
+diff --git a/master/src/SlideshowPanel.cpp b/master/src/SlideshowPanel.cpp
+index 53ebcee..b139638 100644
+--- a/master/src/SlideshowPanel.cpp
++++ b/master/src/SlideshowPanel.cpp
+@@ -1,3 +1,4 @@
++// Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ /*
+  * SlideshowPanel.cpp - implementation of SlideshowPanel
+  *
+@@ -115,7 +116,7 @@ void SlideshowPanel::switchViewMode()
+ 	{
+ 		m_originalParent = parentWidget();
+ 		setParent(nullptr);
+-		setWindowTitle(tr("Veyon Master – Slideshow"));
++		setWindowTitle(tr("BIMLéman View Room – Slideshow"));
+ 		showMaximized();
+ 	}
+ 	else
 diff --git a/master/src/main.cpp b/master/src/main.cpp
-index 6c4f93f..99a18c6 100644
+index 6c4f93f..7a80916 100644
 --- a/master/src/main.cpp
 +++ b/master/src/main.cpp
-@@ -24,6 +24,13 @@
+@@ -1,3 +1,4 @@
++// Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ /*
+  * main.cpp - startup routine for Veyon Master Application
+  *
+@@ -24,6 +25,15 @@
  
  #include <QApplication>
  #include <QSplashScreen>
@@ -6876,12 +6948,14 @@ index 6c4f93f..99a18c6 100644
 +#include <QFile>
 +#include <QJsonDocument>
 +#include <QJsonObject>
++#include <QJsonArray>
++#include "FeatureManager.h"
 +#include <QTimer>
 +#include <QCryptographicHash>
  
  #include "DocumentationFigureCreator.h"
  #include "VeyonMaster.h"
-@@ -48,7 +55,16 @@ int main( int argc, char** argv )
+@@ -48,7 +58,16 @@ int main( int argc, char** argv )
  #endif
  
  	QSplashScreen splashScreen( QPixmap( QStringLiteral(":/master/splash.png") ) );
@@ -6898,7 +6972,7 @@ index 6c4f93f..99a18c6 100644
  
  	if( MainWindow::initAuthentication() == false ||
  			MainWindow::initAccessControl() == false )
-@@ -63,5 +79,26 @@ int main( int argc, char** argv )
+@@ -63,5 +82,29 @@ int main( int argc, char** argv )
  
  	masterCore.mainWindow()->show();
  
@@ -6909,6 +6983,9 @@ index 6c4f93f..99a18c6 100644
 +			report.insert(QStringLiteral("title"), window->windowTitle());
 +			report.insert(QStringLiteral("version"), VeyonCore::versionString());
 +			report.insert(QStringLiteral("qt"), QString::fromLatin1(qVersion()));
++			QJsonArray features;
++			for (const auto& feature : VeyonCore::featureManager().features()) { features.append(feature.name()); }
++			report.insert(QStringLiteral("features"), features);
 +			report.insert(QStringLiteral("iconLoaded"), !window->windowIcon().isNull());
 +			report.insert(QStringLiteral("splashLoaded"), !splashScreen.pixmap().isNull());
 +			for (const auto& resource : {QStringLiteral("bimleman-icon.png"), QStringLiteral("splash.png")}) {
@@ -6924,4 +7001,27 @@ index 6c4f93f..99a18c6 100644
 +		});
 +	}
  	return core.exec();
+ }
+diff --git a/plugins/remoteaccess/RemoteAccessWidget.cpp b/plugins/remoteaccess/RemoteAccessWidget.cpp
+index bbc6094..20e79cf 100644
+--- a/plugins/remoteaccess/RemoteAccessWidget.cpp
++++ b/plugins/remoteaccess/RemoteAccessWidget.cpp
+@@ -1,3 +1,4 @@
++// Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ /*
+  *  RemoteAccessWidget.cpp - widget containing a VNC-view and controls for it
+  *
+@@ -505,11 +506,11 @@ void RemoteAccessWidget::updateRemoteAccessTitle()
+ 
+ 	if (username.isEmpty() )
+ 	{
+-		setWindowTitle(tr("%1 - Veyon Remote Access").arg(m_computerControlInterface->computerName()));
++		setWindowTitle(tr("%1 - BIMLéman View Room").arg(m_computerControlInterface->computerName()));
+ 	}
+ 	else
+ 	{
+-		setWindowTitle(tr("%1 - %2 - Veyon Remote Access").arg(username,
++		setWindowTitle(tr("%1 - %2 - BIMLéman View Room").arg(username,
+ 															m_computerControlInterface->computerName()));
+ 	}
  }
