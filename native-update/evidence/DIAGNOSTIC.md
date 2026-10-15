@@ -85,3 +85,12 @@ Référence : https://nsis.sourceforge.io/Auto-uninstall_old_before_installing_n
 Le test exige désormais explicitement l'absence du dossier, avant la seconde
 installation. Les codes Robocopy de réussite 0 à 7 sont également normalisés
 après contrôle, sans ignorer les échecs de sauvegarde (codes >= 8).
+
+Inspection supplémentaire de l'EXE officiel extrait de l'installateur vérifié
+SHA256 `6acad4fc310e915a631477373f7649d51b74fbe8c41c5b0ab38d2fa852876b73` :
+la chaîne `FileVersion` vaut `4.11.3`, tandis que les champs numériques PE valent
+`4.11.3.0` (MS=0x0004000b, LS=0x00030000). PowerShell distingue ces deux versions.
+Le détecteur doit lire les quatre champs numériques, sans inventer ni ignorer
+la révision. Le run 38762164678, lancé avec l'ancien détecteur, est arrêté avant
+de répéter ce refus connu. Le prochain test Windows exige les deux valeurs sur
+l'EXE officiel réel avant toute installation du candidat.

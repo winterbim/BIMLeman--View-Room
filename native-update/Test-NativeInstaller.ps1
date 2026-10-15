@@ -28,6 +28,10 @@ $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
 $installed = Join-Path $env:LOCALAPPDATA "Programs/BIMLemanNative/$($manifest.buildId)"
 $installer = Join-Path $out $manifest.installer
 $evidence = Join-Path $out 'evidence'
+. "$out/Get-VeyonInstallation.ps1"
+$detected = Get-VeyonInstallation
+if ($detected.Version -ne '4.11.3.0' -or $detected.DisplayVersion -ne '4.11.3') { throw 'Official version detection confused display text and numeric PE revision.' }
+$detected | ConvertTo-Json | Set-Content (Join-Path $evidence 'official-detection.json') -Encoding UTF8
 # Exclude all build tools from PATH to expose missing DLLs/plugins.
 $env:PATH = "$env:SystemRoot\System32;$env:SystemRoot"
 $env:QT_PLUGIN_PATH = $null
