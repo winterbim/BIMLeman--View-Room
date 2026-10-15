@@ -21,6 +21,10 @@ class NativeBrandingTests(unittest.TestCase):
             import io
             with tarfile.open(fileobj=io.BytesIO(archive)) as tar:
                 tar.extractall(root, filter='data')
+            vnc = root / '3rdparty/ultravnc/winvnc/winvnc/vnckeymap.cpp'
+            vnc.parent.mkdir(parents=True, exist_ok=True)
+            vnc.write_bytes(subprocess.check_output(['git', '-C', str(UPSTREAM/'3rdparty/ultravnc'),
+                'show', 'HEAD:winvnc/winvnc/vnckeymap.cpp']))
             preserved = ['COPYING', 'core/src/VeyonCore.cpp', 'master/src/VeyonMaster.cpp',
                          'core/src/AuthenticationCredentials.cpp']
             before = {p: (root / p).read_bytes() for p in preserved}

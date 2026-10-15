@@ -18,6 +18,7 @@ def main():
     root = Path(a.source).resolve()
     # Validate ALL patch anchors before writing anything.
     edits = {
+        '3rdparty/ultravnc/winvnc/winvnc/vnckeymap.cpp': [('long childCount = 0L;', ''), ('childCount++;', '')],
         'master/src/SlideshowPanel.cpp': [('Veyon Master – Slideshow', 'BIMLéman View Room – Slideshow')],
         'master/src/ComputerZoomWidget.cpp': [('%1 - Veyon', '%1 - BIMLéman View Room'),
                                             ('%1 - %2 - Veyon', '%1 - %2 - BIMLéman View Room')],
@@ -104,7 +105,7 @@ def main():
     draw.text((360, 300), 'BIMLéman View Room', fill='#182f40', anchor='mm', font=ImageFont.truetype(str(Path(__file__).parent/'fonts/DejaVuSans.ttf'), size=32))
     draw.text((360, 357), 'Chargement…', fill='#4b6272', anchor='mm', font=ImageFont.truetype(str(Path(__file__).parent/'fonts/DejaVuSans.ttf'), size=20))
     for rel, out in outputs.items():
-        (root / rel).write_text(out, encoding='utf-8', newline='\n')
+        (root / rel).write_text(out, encoding='utf-8', newline='\r\n' if rel.startswith('3rdparty/') else '\n')
     icon.save(root / 'master/data/veyon-master.ico', sizes=[(16,16),(24,24),(32,32),(48,48),(64,64),(128,128),(256,256)])
     icon.save(root / 'master/resources/bimleman-icon.png')
     splash.save(root / 'master/resources/splash.png')

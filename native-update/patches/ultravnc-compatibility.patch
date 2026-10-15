@@ -1,0 +1,27 @@
+diff --git a/winvnc/winvnc/vnckeymap.cpp b/winvnc/winvnc/vnckeymap.cpp
+index 93209dcd..59ae9229 100644
+--- a/winvnc/winvnc/vnckeymap.cpp
++++ b/winvnc/winvnc/vnckeymap.cpp
+@@ -1,3 +1,4 @@
++// Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ // This file is part of UltraVNC
+ // https://github.com/ultravnc/UltraVNC
+ // https://uvnc.com/
+@@ -1071,7 +1072,7 @@ public:
+ 		  LRESULT MainStatus = ::SendMessage(hIME_Main, WM_IME_CONTROL, 5, 0);
+ 		  
+ 		  HWND hChildWnd = GetWindow(hWnd, GW_CHILD);
+-		  long childCount = 0L;
++		  
+ 
+ 		  while (IsWindow(hChildWnd))
+ 		  {
+@@ -1093,7 +1094,7 @@ public:
+ 				  ::SendMessage(hIME, WM_IME_CONTROL, 6, 1);
+ 			  }
+ 
+-			  childCount++;
++			  
+ 			  hChildWnd = GetWindow(hChildWnd, GW_HWNDNEXT);
+ 		  }
+ 		  return;
