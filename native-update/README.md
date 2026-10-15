@@ -4,6 +4,14 @@ Cette livraison remplace uniquement la présentation du véritable Master C++/Qt
 `Program.cs`, `BIMLeman.nsi` et `branding-update.yml` sont historiques : le workflow
 legacy n'est plus déclenché par les modifications natives.
 
+## Résultat vérifié
+
+La compilation native complète, le packaging NSIS et la recette automatisée
+sur Windows 2022 ont réussi dans le [run 38754270228](https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38754270228).
+Le [rapport avec captures et limites](evidence/WINDOWS-REPORT.md) distingue cette
+réussite technique de la livraison client, encore bloquée. L'installateur n'est
+pas publié : droits Interception, version et recette client non validés.
+
 ## Sources et compilation
 
 - Veyon v4.11.3 : `0c629d9931810a5974038fc1a207d52fbd0e65f6` et ses sous-modules.

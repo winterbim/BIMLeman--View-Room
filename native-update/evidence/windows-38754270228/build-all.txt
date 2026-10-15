@@ -1,0 +1,547 @@
+[1/282] Automatic MOC and UIC for target veyon-library-pch
+[2/282] Automatic MOC and UIC for target kldap-light
+[3/282] Building CXX object plugins/ldap/kldap/CMakeFiles/kldap-light.dir/Unity/unity_1_cxx.cxx.obj
+[4/282] Building CXX object plugins/ldap/kldap/CMakeFiles/kldap-light.dir/Unity/unity_0_cxx.cxx.obj
+[5/282] Linking CXX shared library plugins\ldap\kldap\libkldap-light.dll
+[6/282] Automatic MOC and UIC for target veyon-configurator
+[7/282] Building CXX object core/CMakeFiles/veyon-library-pch.dir/cmake_pch.hxx.gch
+[8/282] Automatic MOC and UIC for target builtindirectory
+[9/282] Building CXX object core/CMakeFiles/veyon-library-pch.dir/Unity/unity_0_cxx.cxx.obj
+[10/282] Building CXX object core/CMakeFiles/veyon-library-pch.dir/veyon-library-pch/empty_pch.cxx.obj
+[11/282] Linking CXX static library core\libveyon-library-pch.a
+[12/282] Automatic MOC and UIC for target desktopservices
+[13/282] Automatic MOC and UIC for target demo
+[14/282] Automatic MOC and UIC for target ldap
+[15/282] Automatic MOC and UIC for target filetransfer
+[16/282] Automatic MOC and UIC for target powercontrol
+[17/282] Automatic MOC and UIC for target remoteaccess
+[18/282] Automatic MOC and UIC for target screenlock
+[19/282] Automatic MOC and UIC for target screenshot
+[20/282] Automatic MOC and UIC for target textmessage
+[21/282] Automatic MOC and UIC for target usersessioncontrol
+[22/282] Automatic MOC and UIC for target windows-platform
+[23/282] Automatic MOC and UIC for target webapi
+[24/282] Automatic MOC and UIC for target veyon-service
+[25/282] Automatic RCC for resources/configurator.qrc
+[26/282] Automatic MOC and UIC for target veyon-server
+[27/282] Automatic MOC and UIC for target veyon-cli
+[28/282] Automatic MOC and UIC for target veyon-worker
+[29/282] Automatic MOC and UIC for target veyon-wcli
+[30/282] Automatic RCC for builtindirectory.qrc
+[31/282] Automatic RCC for demo.qrc
+[32/282] Automatic RCC for desktopservices.qrc
+[33/282] Automatic RCC for filetransfer.qrc
+[34/282] Automatic RCC for ldap.qrc
+[35/282] Automatic RCC for windows.qrc
+[36/282] Automatic RCC for powercontrol.qrc
+[37/282] Automatic RCC for remoteaccess.qrc
+[38/282] Automatic RCC for screenlock.qrc
+[39/282] Automatic MOC and UIC for target authkeys
+[40/282] Automatic RCC for screenshot.qrc
+[41/282] Automatic RCC for textmessage.qrc
+[42/282] Automatic RCC for usersessioncontrol.qrc
+[43/282] Automatic MOC and UIC for target systemusergroups
+[44/282] Automatic MOC and UIC for target vnchooks
+[45/282] Automatic MOC and UIC for target builtin-ultravnc-server
+[46/282] Automatic MOC and UIC for target external-vnc-server
+[47/282] Automatic RCC for webapi.qrc
+[48/282] Automatic MOC and UIC for target headless-vnc-server
+[49/282] Building CXX object server/CMakeFiles/veyon-server.dir/Unity/unity_1_cxx.cxx.obj
+[50/282] Building RC object server/CMakeFiles/veyon-server.dir/veyon-server.exe.rc.obj
+[51/282] Building CXX object service/CMakeFiles/veyon-service.dir/Unity/unity_0_cxx.cxx.obj
+[52/282] Building RC object service/CMakeFiles/veyon-service.dir/veyon-service.exe.rc.obj
+[53/282] Building CXX object server/CMakeFiles/veyon-server.dir/Unity/unity_0_cxx.cxx.obj
+[54/282] Building CXX object configurator/CMakeFiles/veyon-configurator.dir/Unity/unity_1_cxx.cxx.obj
+[55/282] Building RC object configurator/CMakeFiles/veyon-configurator.dir/veyon-configurator.exe.rc.obj
+[56/282] Building CXX object configurator/CMakeFiles/veyon-configurator.dir/veyon-configurator_autogen/3YJK5W5UP7/qrc_configurator.cpp.obj
+[57/282] Building CXX object configurator/CMakeFiles/veyon-configurator.dir/Unity/unity_0_cxx.cxx.obj
+[58/282] Building RC object cli/CMakeFiles/veyon-cli.dir/veyon-cli.exe.rc.obj
+[59/282] Building CXX object cli/CMakeFiles/veyon-cli.dir/Unity/unity_0_cxx.cxx.obj
+[60/282] Building RC object cli/CMakeFiles/veyon-wcli.dir/veyon-wcli.exe.rc.obj
+[61/282] Building CXX object worker/CMakeFiles/veyon-worker.dir/Unity/unity_0_cxx.cxx.obj
+[62/282] Building RC object worker/CMakeFiles/veyon-worker.dir/veyon-worker.exe.rc.obj
+[63/282] Building CXX object cli/CMakeFiles/veyon-wcli.dir/Unity/unity_0_cxx.cxx.obj
+[64/282] Building RC object plugins/authkeys/CMakeFiles/authkeys.dir/authkeys.dll.rc.obj
+[65/282] Building CXX object plugins/authkeys/CMakeFiles/authkeys.dir/Unity/unity_0_cxx.cxx.obj
+[66/282] Building RC object plugins/builtindirectory/CMakeFiles/builtindirectory.dir/builtindirectory.dll.rc.obj
+[67/282] Building CXX object plugins/builtindirectory/CMakeFiles/builtindirectory.dir/builtindirectory_autogen/EWIEGA46WW/qrc_builtindirectory.cpp.obj
+[68/282] Building CXX object plugins/builtindirectory/CMakeFiles/builtindirectory.dir/Unity/unity_0_cxx.cxx.obj
+[69/282] Building RC object plugins/demo/CMakeFiles/demo.dir/demo.dll.rc.obj
+[70/282] Building CXX object plugins/demo/CMakeFiles/demo.dir/demo_autogen/EWIEGA46WW/qrc_demo.cpp.obj
+[71/282] Building CXX object plugins/demo/CMakeFiles/demo.dir/Unity/unity_0_cxx.cxx.obj
+[72/282] Building RC object plugins/desktopservices/CMakeFiles/desktopservices.dir/desktopservices.dll.rc.obj
+[73/282] Building CXX object plugins/desktopservices/CMakeFiles/desktopservices.dir/Unity/unity_0_cxx.cxx.obj
+[74/282] Building CXX object plugins/desktopservices/CMakeFiles/desktopservices.dir/desktopservices_autogen/EWIEGA46WW/qrc_desktopservices.cpp.obj
+[75/282] Building CXX object plugins/filetransfer/CMakeFiles/filetransfer.dir/Unity/unity_1_cxx.cxx.obj
+[76/282] Building RC object plugins/filetransfer/CMakeFiles/filetransfer.dir/filetransfer.dll.rc.obj
+[77/282] Building CXX object plugins/filetransfer/CMakeFiles/filetransfer.dir/filetransfer_autogen/EWIEGA46WW/qrc_filetransfer.cpp.obj
+[78/282] Building CXX object plugins/ldap/CMakeFiles/ldap.dir/Unity/unity_1_cxx.cxx.obj
+[79/282] Building CXX object plugins/filetransfer/CMakeFiles/filetransfer.dir/Unity/unity_0_cxx.cxx.obj
+[80/282] Building RC object plugins/ldap/CMakeFiles/ldap.dir/ldap.dll.rc.obj
+[81/282] Building CXX object plugins/ldap/CMakeFiles/ldap.dir/ldap_autogen/EWIEGA46WW/qrc_ldap.cpp.obj
+[82/282] Building CXX object plugins/platform/windows/CMakeFiles/windows-platform.dir/Unity/unity_3_cxx.cxx.obj
+[83/282] Building CXX object plugins/platform/windows/CMakeFiles/windows-platform.dir/Unity/unity_2_cxx.cxx.obj
+[84/282] Building CXX object plugins/ldap/CMakeFiles/ldap.dir/Unity/unity_0_cxx.cxx.obj
+[85/282] Building CXX object plugins/platform/windows/CMakeFiles/windows-platform.dir/Unity/unity_1_cxx.cxx.obj
+[86/282] Building CXX object plugins/platform/windows/CMakeFiles/windows-platform.dir/Unity/unity_0_cxx.cxx.obj
+[87/282] Building RC object plugins/platform/windows/CMakeFiles/windows-platform.dir/windows-platform.dll.rc.obj
+[88/282] Building CXX object plugins/platform/windows/CMakeFiles/windows-platform.dir/windows-platform_autogen/EWIEGA46WW/qrc_windows.cpp.obj
+[89/282] Building CXX object plugins/platform/windows/CMakeFiles/windows-platform.dir/WindowsNetworkFunctions.cpp.obj
+[90/282] Building RC object plugins/powercontrol/CMakeFiles/powercontrol.dir/powercontrol.dll.rc.obj
+[91/282] Building CXX object plugins/powercontrol/CMakeFiles/powercontrol.dir/powercontrol_autogen/EWIEGA46WW/qrc_powercontrol.cpp.obj
+[92/282] Building CXX object plugins/powercontrol/CMakeFiles/powercontrol.dir/Unity/unity_0_cxx.cxx.obj
+[93/282] Building RC object plugins/remoteaccess/CMakeFiles/remoteaccess.dir/remoteaccess.dll.rc.obj
+[94/282] Building CXX object plugins/remoteaccess/CMakeFiles/remoteaccess.dir/remoteaccess_autogen/EWIEGA46WW/qrc_remoteaccess.cpp.obj
+[95/282] Building CXX object plugins/remoteaccess/CMakeFiles/remoteaccess.dir/Unity/unity_0_cxx.cxx.obj
+[96/282] Building RC object plugins/screenlock/CMakeFiles/screenlock.dir/screenlock.dll.rc.obj
+[97/282] Building CXX object plugins/screenlock/CMakeFiles/screenlock.dir/Unity/unity_0_cxx.cxx.obj
+[98/282] Building CXX object plugins/screenlock/CMakeFiles/screenlock.dir/screenlock_autogen/EWIEGA46WW/qrc_screenlock.cpp.obj
+[99/282] Building RC object plugins/screenshot/CMakeFiles/screenshot.dir/screenshot.dll.rc.obj
+[100/282] Building CXX object plugins/screenshot/CMakeFiles/screenshot.dir/screenshot_autogen/EWIEGA46WW/qrc_screenshot.cpp.obj
+[101/282] Building CXX object plugins/screenshot/CMakeFiles/screenshot.dir/Unity/unity_0_cxx.cxx.obj
+[102/282] Building RC object plugins/systemusergroups/CMakeFiles/systemusergroups.dir/systemusergroups.dll.rc.obj
+[103/282] Building CXX object plugins/systemusergroups/CMakeFiles/systemusergroups.dir/Unity/unity_0_cxx.cxx.obj
+[104/282] Building RC object plugins/textmessage/CMakeFiles/textmessage.dir/textmessage.dll.rc.obj
+[105/282] Building CXX object plugins/textmessage/CMakeFiles/textmessage.dir/textmessage_autogen/EWIEGA46WW/qrc_textmessage.cpp.obj
+[106/282] Building CXX object plugins/textmessage/CMakeFiles/textmessage.dir/Unity/unity_0_cxx.cxx.obj
+[107/282] Building RC object plugins/usersessioncontrol/CMakeFiles/usersessioncontrol.dir/usersessioncontrol.dll.rc.obj
+[108/282] Building CXX object plugins/usersessioncontrol/CMakeFiles/usersessioncontrol.dir/usersessioncontrol_autogen/EWIEGA46WW/qrc_usersessioncontrol.cpp.obj
+[109/282] Building CXX object plugins/usersessioncontrol/CMakeFiles/usersessioncontrol.dir/Unity/unity_0_cxx.cxx.obj
+[110/282] Building C object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/common/d3des.c.obj
+[111/282] Building C object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncauth.c.obj
+[112/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/common/Clipboard.cpp.obj
+[113/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/common/inifile.cpp.obj
+[114/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/Unity/unity_0_cxx.cxx.obj
+[115/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/common/UltraVncZ.cpp.obj
+[116/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/rdr/ZlibInStream.cxx.obj
+[117/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/rdr/ZlibOutStream.cxx.obj
+[118/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/common/win32_helpers.cpp.obj
+[119/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/rfb/dh.cpp.obj
+[120/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/omnithread/nt.cpp.obj
+[121/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/buildtime.cpp.obj
+[122/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/CpuUsage.cpp.obj
+[123/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/benchmark.cpp.obj
+[124/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/DeskdupEngine.cpp.obj
+[125/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/HelperFunctions.cpp.obj
+[126/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/IPC.cpp.obj
+[127/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/HideDesktop.cpp.obj
+[128/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/MouseSimulator.cpp.obj
+[129/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/rfbRegion_win32.cpp.obj
+[130/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/ScreenCapture.cpp.obj
+[131/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/rfbUpdateTracker.cpp.obj
+[132/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/stdhdrs.cpp.obj
+[133/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/SettingsManager.cpp.obj
+[134/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/Timer.cpp.obj
+[135/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/uvncUiAccess.cpp.obj
+[136/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/translate.cpp.obj
+[137/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/videodrivercheck.cpp.obj
+[138/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/videodriver.cpp.obj
+[139/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vistahook.cpp.obj
+[140/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncbuffer.cpp.obj
+[141/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncclient.cpp.obj
+[142/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncdesktop.cpp.obj
+[143/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncDesktopSW.cpp.obj
+[144/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncdesktopsink.cpp.obj
+[145/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncencodecorre.cpp.obj
+[146/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncdesktopthread.cpp.obj
+[147/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncencodehext.cpp.obj
+[148/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncencoder.cpp.obj
+[149/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncencoderCursor.cpp.obj
+[150/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncencoderre.cpp.obj
+[151/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncEncodeUltra2.cpp.obj
+[152/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncEncodeTight.cpp.obj
+[153/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncEncodeUltra.cpp.obj
+[154/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncEncodeZlib.cpp.obj
+[155/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncEncodeZlibHex.cpp.obj
+[156/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncinsthandler.cpp.obj
+[157/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncencodezrle.cpp.obj
+[158/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vnckeymap.cpp.obj
+[159/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vnclog.cpp.obj
+[160/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncMultiMonitor.cpp.obj
+[161/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncOSVersion.cpp.obj
+[162/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncserver.cpp.obj
+[163/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncsetauth.cpp.obj
+[164/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vncsockconnect.cpp.obj
+[165/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/vsocket.cpp.obj
+[166/282] Building RC object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/builtin-ultravnc-server.dll.rc.obj
+[167/282] Building CXX object plugins/vncserver/ultravnc-builtin/vnchooks/CMakeFiles/vnchooks.dir/Unity/unity_0_cxx.cxx.obj
+[168/282] Building CXX object plugins/vncserver/ultravnc-builtin/vnchooks/CMakeFiles/vnchooks.dir/__/__/__/__/3rdparty/ultravnc/winvnc/vnchooks/VNCHooks.cpp.obj
+[169/282] Building CXX object plugins/vncserver/ultravnc-builtin/CMakeFiles/builtin-ultravnc-server.dir/__/__/__/3rdparty/ultravnc/winvnc/winvnc/winvnc.cpp.obj
+[170/282] Building RC object plugins/vncserver/ultravnc-builtin/vnchooks/CMakeFiles/vnchooks.dir/__/__/__/__/3rdparty/ultravnc/winvnc/vnchooks/vnchooks.rc.obj
+[171/282] Building CXX object plugins/vncserver/ultravnc-builtin/vnchooks/CMakeFiles/vnchooks.dir/__/__/__/__/3rdparty/ultravnc/winvnc/vnchooks/SharedData.cpp.obj
+[172/282] Building RC object plugins/vncserver/external/CMakeFiles/external-vnc-server.dir/external-vnc-server.dll.rc.obj
+[173/282] Building CXX object plugins/vncserver/external/CMakeFiles/external-vnc-server.dir/Unity/unity_0_cxx.cxx.obj
+[174/282] Building CXX object plugins/vncserver/headless/CMakeFiles/headless-vnc-server.dir/Unity/unity_0_cxx.cxx.obj
+[175/282] Building RC object plugins/vncserver/headless/CMakeFiles/headless-vnc-server.dir/headless-vnc-server.dll.rc.obj
+[176/282] Building CXX object plugins/webapi/CMakeFiles/webapi.dir/Unity/unity_0_cxx.cxx.obj
+[177/282] Building RC object plugins/webapi/CMakeFiles/webapi.dir/webapi.dll.rc.obj
+[178/282] Building CXX object plugins/webapi/CMakeFiles/webapi.dir/webapi_autogen/EWIEGA46WW/qrc_webapi.cpp.obj
+[179/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon.ts
+Updating '../../upstream-veyon/translations/veyon.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+[180/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_ar.ts
+Updating '../../upstream-veyon/translations/veyon_ar.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[181/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_bg.ts
+Updating '../../upstream-veyon/translations/veyon_bg.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[182/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_ca_ES.ts
+Updating '../../upstream-veyon/translations/veyon_ca_ES.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[183/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_cs.ts
+Updating '../../upstream-veyon/translations/veyon_cs.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[184/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_de.ts
+Updating '../../upstream-veyon/translations/veyon_de.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[185/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_el.ts
+Updating '../../upstream-veyon/translations/veyon_el.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[186/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_es_ES.ts
+Updating '../../upstream-veyon/translations/veyon_es_ES.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[187/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_et.ts
+Updating '../../upstream-veyon/translations/veyon_et.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[188/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_eu.ts
+Updating '../../upstream-veyon/translations/veyon_eu.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[189/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_fa.ts
+Updating '../../upstream-veyon/translations/veyon_fa.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+[190/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_fr.ts
+Updating '../../upstream-veyon/translations/veyon_fr.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[191/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_he.ts
+Updating '../../upstream-veyon/translations/veyon_he.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[192/282] Building CXX object plugins/webapi/CMakeFiles/webapi.dir/WebApiHttpServer.cpp.obj
+[193/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_hr.ts
+Updating '../../upstream-veyon/translations/veyon_hr.ts'...
+    Found 1165 source text(s) (4 new and 1161 already existing)
+    Removed 703 obsolete entries
+[194/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_hu.ts
+Updating '../../upstream-veyon/translations/veyon_hu.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[195/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_id.ts
+Updating '../../upstream-veyon/translations/veyon_id.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[196/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_it.ts
+Updating '../../upstream-veyon/translations/veyon_it.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[197/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_ja.ts
+Updating '../../upstream-veyon/translations/veyon_ja.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[198/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_ka.ts
+Updating '../../upstream-veyon/translations/veyon_ka.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[199/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_ko.ts
+Updating '../../upstream-veyon/translations/veyon_ko.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[200/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_lt.ts
+Updating '../../upstream-veyon/translations/veyon_lt.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[201/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_lv.ts
+Updating '../../upstream-veyon/translations/veyon_lv.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[202/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_mn.ts
+Updating '../../upstream-veyon/translations/veyon_mn.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+[203/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_nl.ts
+Updating '../../upstream-veyon/translations/veyon_nl.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[204/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_no_NO.ts
+Updating '../../upstream-veyon/translations/veyon_no_NO.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+[205/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_pl.ts
+Updating '../../upstream-veyon/translations/veyon_pl.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[206/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_pt_BR.ts
+Updating '../../upstream-veyon/translations/veyon_pt_BR.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[207/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_pt_PT.ts
+Updating '../../upstream-veyon/translations/veyon_pt_PT.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+[208/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_ru.ts
+Updating '../../upstream-veyon/translations/veyon_ru.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[209/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_sk.ts
+Updating '../../upstream-veyon/translations/veyon_sk.ts'...
+    Found 1165 source text(s) (4 new and 1161 already existing)
+    Removed 703 obsolete entries
+[210/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_sl.ts
+Updating '../../upstream-veyon/translations/veyon_sl.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[211/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_sr.ts
+Updating '../../upstream-veyon/translations/veyon_sr.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[212/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_sv.ts
+Updating '../../upstream-veyon/translations/veyon_sv.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[213/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_th.ts
+Updating '../../upstream-veyon/translations/veyon_th.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[214/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_tr.ts
+Updating '../../upstream-veyon/translations/veyon_tr.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[215/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_uk.ts
+Updating '../../upstream-veyon/translations/veyon_uk.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[216/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_vi.ts
+Updating '../../upstream-veyon/translations/veyon_vi.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+[217/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_zh_CN.ts
+Updating '../../upstream-veyon/translations/veyon_zh_CN.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[218/282] Generating D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/translations/veyon_zh_TW.ts
+Updating '../../upstream-veyon/translations/veyon_zh_TW.ts'...
+    Found 1165 source text(s) (15 new and 1150 already existing)
+    Removed 11 obsolete entries
+    Same-text heuristic provided 1 translation(s)
+[219/282] Linking CXX executable server\veyon-server.exe
+[220/282] Linking CXX executable service\veyon-service.exe
+[221/282] Linking CXX executable configurator\veyon-configurator.exe
+[222/282] Linking CXX executable cli\veyon-cli.exe
+[223/282] Linking CXX executable cli\veyon-wcli.exe
+[224/282] Linking CXX executable worker\veyon-worker.exe
+[225/282] Linking CXX shared module plugins\authkeys\authkeys.dll
+[226/282] Linking CXX shared module plugins\builtindirectory\builtindirectory.dll
+[227/282] Linking CXX shared module plugins\demo\demo.dll
+[228/282] Linking CXX shared module plugins\desktopservices\desktopservices.dll
+[229/282] Linking CXX shared module plugins\filetransfer\filetransfer.dll
+[230/282] Linking CXX shared module plugins\ldap\ldap.dll
+[231/282] Linking CXX shared module plugins\powercontrol\powercontrol.dll
+[232/282] Linking CXX shared module plugins\platform\windows\windows-platform.dll
+[233/282] Linking CXX shared module plugins\remoteaccess\remoteaccess.dll
+[234/282] Linking CXX shared module plugins\screenlock\screenlock.dll
+[235/282] Linking CXX shared module plugins\screenshot\screenshot.dll
+[236/282] Linking CXX shared module plugins\systemusergroups\systemusergroups.dll
+[237/282] Linking CXX shared module plugins\textmessage\textmessage.dll
+[238/282] Linking CXX shared module plugins\usersessioncontrol\usersessioncontrol.dll
+[239/282] Linking CXX shared module plugins\vncserver\ultravnc-builtin\vnchooks\vnchooks.dll
+[240/282] Linking CXX shared module plugins\vncserver\ultravnc-builtin\builtin-ultravnc-server.dll
+[241/282] Linking CXX shared module plugins\vncserver\external\external-vnc-server.dll
+[242/282] Linking CXX shared module plugins\vncserver\headless\headless-vnc-server.dll
+[243/282] Generating veyon.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon.qm'...
+    Generated 0 translation(s) (0 finished and 0 unfinished)
+    Ignored 1165 untranslated source text(s)
+[244/282] Generating veyon_ar.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_ar.qm'...
+    Generated 218 translation(s) (217 finished and 1 unfinished)
+    Ignored 947 untranslated source text(s)
+[245/282] Linking CXX shared module plugins\webapi\webapi.dll
+[246/282] Generating veyon_bg.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_bg.qm'...
+    Generated 809 translation(s) (808 finished and 1 unfinished)
+    Ignored 356 untranslated source text(s)
+[247/282] Generating veyon_ca_ES.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_ca_ES.qm'...
+    Generated 1028 translation(s) (1027 finished and 1 unfinished)
+    Ignored 137 untranslated source text(s)
+[248/282] Generating veyon_cs.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_cs.qm'...
+    Generated 821 translation(s) (820 finished and 1 unfinished)
+    Ignored 344 untranslated source text(s)
+[249/282] Generating veyon_de.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_de.qm'...
+    Generated 1151 translation(s) (1150 finished and 1 unfinished)
+    Ignored 14 untranslated source text(s)
+[250/282] Generating veyon_el.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_el.qm'...
+    Generated 388 translation(s) (387 finished and 1 unfinished)
+    Ignored 777 untranslated source text(s)
+[251/282] Generating veyon_es_ES.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_es_ES.qm'...
+    Generated 985 translation(s) (984 finished and 1 unfinished)
+    Ignored 180 untranslated source text(s)
+[252/282] Generating veyon_et.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_et.qm'...
+    Generated 1017 translation(s) (1016 finished and 1 unfinished)
+    Ignored 148 untranslated source text(s)
+[253/282] Generating veyon_eu.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_eu.qm'...
+    Generated 1059 translation(s) (1058 finished and 1 unfinished)
+    Ignored 106 untranslated source text(s)
+[254/282] Generating veyon_fa.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_fa.qm'...
+    Generated 254 translation(s) (254 finished and 0 unfinished)
+    Ignored 911 untranslated source text(s)
+[255/282] Generating veyon_fr.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_fr.qm'...
+    Generated 992 translation(s) (991 finished and 1 unfinished)
+    Ignored 173 untranslated source text(s)
+[256/282] Generating veyon_he.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_he.qm'...
+    Generated 912 translation(s) (911 finished and 1 unfinished)
+    Ignored 253 untranslated source text(s)
+[257/282] Generating veyon_hr.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_hr.qm'...
+    Generated 1140 translation(s) (1139 finished and 1 unfinished)
+    Ignored 25 untranslated source text(s)
+[258/282] Generating veyon_hu.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_hu.qm'...
+    Generated 1055 translation(s) (1054 finished and 1 unfinished)
+    Ignored 110 untranslated source text(s)
+[259/282] Generating veyon_id.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_id.qm'...
+    Generated 500 translation(s) (499 finished and 1 unfinished)
+    Ignored 665 untranslated source text(s)
+[260/282] Generating veyon_it.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_it.qm'...
+    Generated 1151 translation(s) (1150 finished and 1 unfinished)
+    Ignored 14 untranslated source text(s)
+[261/282] Generating veyon_ja.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_ja.qm'...
+    Generated 724 translation(s) (723 finished and 1 unfinished)
+    Ignored 441 untranslated source text(s)
+[262/282] Generating veyon_ka.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_ka.qm'...
+    Generated 268 translation(s) (267 finished and 1 unfinished)
+    Ignored 897 untranslated source text(s)
+[263/282] Generating veyon_ko.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_ko.qm'...
+    Generated 851 translation(s) (850 finished and 1 unfinished)
+    Ignored 314 untranslated source text(s)
+[264/282] Generating veyon_lt.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_lt.qm'...
+    Generated 713 translation(s) (712 finished and 1 unfinished)
+    Ignored 452 untranslated source text(s)
+[265/282] Generating veyon_lv.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_lv.qm'...
+    Generated 554 translation(s) (553 finished and 1 unfinished)
+    Ignored 611 untranslated source text(s)
+[266/282] Generating veyon_mn.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_mn.qm'...
+    Generated 115 translation(s) (115 finished and 0 unfinished)
+    Ignored 1050 untranslated source text(s)
+[267/282] Generating veyon_nl.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_nl.qm'...
+    Generated 1141 translation(s) (1140 finished and 1 unfinished)
+    Ignored 24 untranslated source text(s)
+[268/282] Generating veyon_no_NO.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_no_NO.qm'...
+    Generated 66 translation(s) (66 finished and 0 unfinished)
+    Ignored 1099 untranslated source text(s)
+[269/282] Generating veyon_pl.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_pl.qm'...
+    Generated 902 translation(s) (901 finished and 1 unfinished)
+    Ignored 263 untranslated source text(s)
+[270/282] Generating veyon_pt_BR.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_pt_BR.qm'...
+    Generated 777 translation(s) (776 finished and 1 unfinished)
+    Ignored 388 untranslated source text(s)
+[271/282] Generating veyon_pt_PT.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_pt_PT.qm'...
+    Generated 200 translation(s) (200 finished and 0 unfinished)
+    Ignored 965 untranslated source text(s)
+[272/282] Generating veyon_ru.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_ru.qm'...
+    Generated 1140 translation(s) (1139 finished and 1 unfinished)
+    Ignored 25 untranslated source text(s)
+[273/282] Generating veyon_sk.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_sk.qm'...
+    Generated 89 translation(s) (89 finished and 0 unfinished)
+    Ignored 1076 untranslated source text(s)
+[274/282] Generating veyon_sl.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_sl.qm'...
+    Generated 752 translation(s) (751 finished and 1 unfinished)
+    Ignored 413 untranslated source text(s)
+[275/282] Generating veyon_sr.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_sr.qm'...
+    Generated 814 translation(s) (813 finished and 1 unfinished)
+    Ignored 351 untranslated source text(s)
+[276/282] Generating veyon_th.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_th.qm'...
+    Generated 380 translation(s) (379 finished and 1 unfinished)
+    Ignored 785 untranslated source text(s)
+[277/282] Generating veyon_sv.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_sv.qm'...
+    Generated 1060 translation(s) (1059 finished and 1 unfinished)
+    Ignored 105 untranslated source text(s)
+[278/282] Generating veyon_tr.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_tr.qm'...
+    Generated 1067 translation(s) (1066 finished and 1 unfinished)
+    Ignored 98 untranslated source text(s)
+[279/282] Generating veyon_uk.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_uk.qm'...
+    Generated 1151 translation(s) (1150 finished and 1 unfinished)
+    Ignored 14 untranslated source text(s)
+[280/282] Generating veyon_vi.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_vi.qm'...
+    Generated 170 translation(s) (170 finished and 0 unfinished)
+    Ignored 995 untranslated source text(s)
+[281/282] Generating veyon_zh_CN.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_zh_CN.qm'...
+    Generated 1150 translation(s) (1149 finished and 1 unfinished)
+    Ignored 15 untranslated source text(s)
+[282/282] Generating veyon_zh_TW.qm
+Updating 'D:/a/BIMLeman--View-Room/BIMLeman--View-Room/native-build/translations/veyon_zh_TW.qm'...
+    Generated 1150 translation(s) (1149 finished and 1 unfinished)
+    Ignored 15 untranslated source text(s)

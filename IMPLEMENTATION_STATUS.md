@@ -10,10 +10,12 @@ Travail sur `feature/veyon-native-bimleman`, aucune fusion dans main.
   MinGW manquaient aussi à l'ancienne chaîne.
 - Dépendances et sources verrouillées ; branding des vraies ressources natives,
   splash existant, fenêtre principale, zoom, diaporama et accès distant.
-- Première compilation de `veyon-master.exe` prouvée dans le run 38749376708,
-  avant échec d'un plugin UltraVNC. Correctif du compteur inutilisé poussé ;
-  aucune désactivation de `-Werror`.
-- Assemblage du runtime et tests d'installation/retour arrière Windows en cours.
+- Compilation complète et recette automatisée Windows **PASS** : run 38754270228,
+  commit 75fb1886. EXE natif x64 réel, icône PE comparée, titre/splash vérifiés,
+  38 fonctions chargées. Installateur NSIS de 33 005 345 octets exécuté.
+- Désinstallation et retour au Master officiel testés sur le runner jetable :
+  fichiers et état du service de référence inchangés, fenêtre officielle rouverte.
+  La restauration de paramètres et clés réels chez le client reste non testée.
 - Version du PC client INCONNUE : candidat basé sur Veyon 4.11.3.0 seulement.
   Aucun test matériel client réussi n'est revendiqué.
 - Distribution de l'installateur bloquée par défaut tant que les droits
@@ -21,7 +23,8 @@ Travail sur `feature/veyon-native-bimleman`, aucune fusion dans main.
   seconde porte indépendante ; la commande d'installation refuse sans validation.
 
 Rapport et procédure : [native-update/README.md](native-update/README.md).
-Preuves : [native-update/evidence/DIAGNOSTIC.md](native-update/evidence/DIAGNOSTIC.md).
+Recette technique : [native-update/evidence/WINDOWS-REPORT.md](native-update/evidence/WINDOWS-REPORT.md).
+Diagnostic : [native-update/evidence/DIAGNOSTIC.md](native-update/evidence/DIAGNOSTIC.md).
 
 ## Historique — les états ci-dessous ne certifient pas cette livraison native
 

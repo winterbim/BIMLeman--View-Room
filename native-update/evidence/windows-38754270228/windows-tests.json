@@ -1,0 +1,15 @@
+{
+  "clientNetwork": "PENDING-HARDWARE",
+  "embeddedIcon": "MATCHED",
+  "clientVersion": "UNKNOWN",
+  "nativeStartup": "PASS",
+  "signed": false,
+  "serviceUnchanged": "PASS",
+  "officialMasterReopened": "PASS",
+  "installation": "PASS",
+  "uninstall": "PASS",
+  "title": "PASS",
+  "sharedDataPreserved": "PASS",
+  "splash": "PASS",
+  "originalFilesUnchanged": "PASS"
+}

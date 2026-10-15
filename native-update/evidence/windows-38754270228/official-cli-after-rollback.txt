@@ -1,0 +1,12 @@
+Available modules:
+    authkeys - Commands for managing authentication keys
+    config - Commands for managing the configuration of Veyon
+    feature - Commands for controlling features
+    ldap - Commands for configuring and testing LDAP/AD integration
+    networkobjects - Commands for managing the builtin network object directory
+    plugin - Commands for managing plugins
+    power - Commands for controlling power status of computers
+    remoteaccess - Remote view or control a computer
+    service - Commands for configuring and controlling Veyon Service
+    shell - Commands for shell functionalities
+    webapi - Commands for running the WebAPI server

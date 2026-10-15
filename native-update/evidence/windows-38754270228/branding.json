@@ -1,0 +1,24 @@
+{
+  "status": "PATCHED_NOT_RUNTIME_VALIDATED",
+  "upstreamVersion": "4.11.3",
+  "modified": {
+    "plugins/webapi/WebApiHttpServer.cpp": "90c863d5758e7e93954aee66ee75d058e224b65f97c7879d2fff27f0b0398717",
+    "cmake/modules/CreateTranslations.cmake": "15e8ff0fc9fe15809db6b84dc293f640e8aab405d7c3e56463d7f99e6f0f99d2",
+    "master/src/MainWindow.cpp": "8608cb1bdd2d855248e4939d9d93c95753fb601dbb4185c58bdc59f56a77819e",
+    "3rdparty/ultravnc/winvnc/winvnc/vnckeymap.cpp": "5e4c4ba4c3087d1df0b0c4d7e7d3aad4eb62a74048a2da43f4fd21d9c03e69de",
+    "master/src/SlideshowPanel.cpp": "f2e0a161316bfd7f1389e3197d71fcec0d4e99ab3194183e1293993e50970172",
+    "master/src/ComputerZoomWidget.cpp": "4c6a93df908c2c196f7c257da6f47aa3bce5eba9b153cfcb2d6c7e4d2082ab40",
+    "plugins/remoteaccess/RemoteAccessWidget.cpp": "4da41a6824db3bc3cbf44c25c9d6104fda532c2d678f86bf7f0908d90a64f549",
+    "cmake/modules/PchHelpers.cmake": "e4d97a357313a125a569ee6fce788df9ff088f0006eee10fb7ba993aca5acedf",
+    "core/CMakeLists.txt": "78d6890f0332b8fb023c232fdef6499a54f9fbfeb4eee6805e0229164b5c25f1",
+    "master/src/MainWindow.ui": "665370285ad0076c87c9ae1a71d69fdc9e23a5dd96440ac9006e78ad2a448e09",
+    "master/resources/master.qrc": "74107db4b47f737b155d2d2e95d964596f7d6a83f24d134975912fa8376c3555",
+    "master/CMakeLists.txt": "cd675bc81040ef0a165662a4ecc1575e4056791c425d34ac288041721d0baa42",
+    "master/src/main.cpp": "cafeada516bd99613718e5f1e97691591c490aa18e9aba46ff77d73d9ad1e834",
+    "master/data/veyon-master.ico": "31347005c9a532b67c2d9751e5cef0d5e318fbb963f16374023d710d7ee08959",
+    "master/resources/bimleman-icon.png": "d46f706efbf20617b20c0f1f1b325d9a1ab81c1b6ff4b289d9a0d8e8ca66c2b0",
+    "master/resources/splash.png": "5a83203d90cb16fc3152c6fe98faed2bfe913d4365f54c79953d82d131e391d9"
+  },
+  "legal": "COPYING, copyright, AboutDialog and all third-party notices preserved",
+  "settings": "Veyon application/organization names and configuration paths unchanged"
+}
