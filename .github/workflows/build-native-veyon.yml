@@ -14,6 +14,7 @@ jobs:
     runs-on: windows-2022
     timeout-minutes: 60
     env:
+      PYTHONUTF8: '1'
       CI_COMMIT_TAG: v4.11.3
       VEYON_SOURCE: upstream-veyon
       REDISTRIBUTION_AUTHORIZED: ${{ vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'authorized' }}

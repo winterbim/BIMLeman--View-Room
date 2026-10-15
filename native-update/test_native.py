@@ -28,10 +28,10 @@ class NativeBrandingTests(unittest.TestCase):
                 '--source', str(root), '--logo', str(HERE.parent / 'assets/brand/BIMLeman-View-Room-logo.png'),
                 '--report', str(root / 'report.json')], capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
-            ui = (root / 'master/src/MainWindow.ui').read_text()
+            ui = (root / 'master/src/MainWindow.ui').read_text(encoding='utf-8')
             self.assertIn('BIMLéman View Room', ui)
             self.assertIn(':/master/bimleman-icon.png', ui)
-            self.assertIn('--bimleman-self-test', (root / 'master/src/main.cpp').read_text())
+            self.assertIn('--bimleman-self-test', (root / 'master/src/main.cpp').read_text(encoding='utf-8'))
             self.assertEqual(before, {p: (root / p).read_bytes() for p in preserved})
             with Image.open(root / 'master/data/veyon-master.ico') as ico:
                 self.assertIn((256, 256), ico.info['sizes'])
