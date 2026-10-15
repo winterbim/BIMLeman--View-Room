@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+export PATH="/c/Program Files/Git/cmd:$PATH"
+export MINGW_PREFIX="$(cygpath -m "$MINGW_PREFIX")"
 mkdir -p native-output/evidence
 pacman -Q > native-output/evidence/packages.txt
 cmake --version

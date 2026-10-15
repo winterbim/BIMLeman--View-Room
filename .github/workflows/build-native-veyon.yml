@@ -59,6 +59,7 @@ jobs:
             native-output/manifest.json
             native-output/Install-Safe.ps1
             native-output/Uninstall-Safe.ps1
+            native-output/Get-VeyonInstallation.ps1
           if-no-files-found: error
       - name: Preserve complete build diagnostics
         if: always()

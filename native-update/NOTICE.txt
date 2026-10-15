@@ -1,0 +1,11 @@
+BIMLéman View Room — version personnalisée de Veyon Master 4.11.3.
+Modifications BIMLéman du 15 octobre 2026 : titre, icône, splash natif,
+ressources Windows, diagnostic de démarrage et installation parallèle.
+Les auteurs d'origine ne garantissent ni ne soutiennent cette version personnalisée.
+Veyon : Copyright (c) 2004-2026 Tobias Junghans / Veyon Solutions.
+Licence GNU GPL version 2 ou ultérieure ; voir COPYING et le dialogue À propos.
+Sources correspondantes et scripts : archives *sources.tar.gz jointes au candidat.
+Bibliothèques tierces : voir licenses/ et les archives de sources de dépendances.
+La licence propriétaire de l'ancien projet Tauri ne s'applique pas à cette dérivation.
+La bibliothèque utilisateur Interception est sous LGPL ; ses pilotes ne sont pas installés.
+Aucune marque, licence ou attribution juridique d'origine n'est supprimée.

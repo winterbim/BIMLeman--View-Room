@@ -1,0 +1,10 @@
+param([Parameter(Mandatory=$true)][ValidatePattern('^4\.11\.3-[0-9a-f]{8}$')][string]$BuildId)
+$ErrorActionPreference = 'Stop'
+$target = Join-Path $env:LOCALAPPDATA "Programs/BIMLemanNative/$BuildId"
+$exe = Join-Path $target 'Uninstall.exe'
+if (-not (Test-Path -LiteralPath $exe -PathType Leaf)) { throw 'Candidat absent.' }
+$running = @(Get-Process -Name veyon-master -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq (Join-Path $target 'veyon-master.exe') })
+if ($running.Count) { throw 'Fermez le candidat avant sa désinstallation.' }
+$result = Start-Process -FilePath $exe -ArgumentList @('/S', "_?=$target") -Wait -PassThru
+if ($result.ExitCode -ne 0 -or (Test-Path (Join-Path $target 'veyon-master.exe'))) { throw 'Désinstallation incomplète.' }
+Write-Host 'Candidat retiré. Utilisez le raccourci Veyon original. Les sauvegardes et paramètres partagés sont conservés.'
