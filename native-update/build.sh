@@ -13,7 +13,7 @@ gcc -shared -O2 -DINTERCEPTION_EXPORT interception/library/interception.c -o "$M
 cp interception/library/interception.h "$MINGW_PREFIX/include/"
 cmake -S upstream-veyon -B native-build -G Ninja \
   -DCMAKE_TOOLCHAIN_FILE="$PWD/native-update/toolchain.cmake" \
-  -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$MINGW_PREFIX" \
+  -DCMAKE_C_STANDARD=17 -DCMAKE_C_STANDARD_REQUIRED=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$MINGW_PREFIX" \
   -DCMAKE_INSTALL_PREFIX="$PWD/native-install" -DWITH_PCH=ON -DWITH_UNITY_BUILD=ON \
   -DQT_TRANSLATIONS_DIR="$MINGW_PREFIX/share/qt6/translations" \
   2>&1 | tee native-output/evidence/configure.log
