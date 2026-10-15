@@ -20,5 +20,3 @@ cmake -S upstream-veyon -B native-build -G Ninja \
 cmake --build native-build --target veyon-master --parallel 2 2>&1 | tee native-output/evidence/build-master.log
 sha256sum native-build/master/veyon-master.exe > native-output/evidence/master-executable.sha256
 objdump -p native-build/master/veyon-master.exe > native-output/evidence/master-pe.txt
-cmake --build native-build --parallel 2 2>&1 | tee native-output/evidence/build-all.log
-python native-update/package_native.py

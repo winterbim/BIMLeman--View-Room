@@ -18,6 +18,11 @@ def main():
     root = Path(a.source).resolve()
     # Validate ALL patch anchors before writing anything.
     edits = {
+        'plugins/webapi/WebApiHttpServer.cpp': [('#include <QtHttpServer/qhttpserver.h>', '#include <QBitArray>\n#include <QtHttpServer/qhttpserver.h>')],
+        'cmake/modules/CreateTranslations.cmake': [
+            ('\tset(qm_targets "")', '\tset(lupdate_sources "${CMAKE_CURRENT_BINARY_DIR}/${name}-lupdate-sources.txt")\n\tstring(REPLACE ";" "\\n" lupdate_source_lines "${source_files}")\n\tfile(WRITE "${lupdate_sources}" "${lupdate_source_lines}\\n")\n\tset(qm_targets "")'),
+            ('-no-obsolete ${source_files} -ts ${ts_file}', '-no-obsolete "@${lupdate_sources}" -ts ${ts_file}'),
+            ('DEPENDS ${source_files})', 'DEPENDS ${source_files} "${lupdate_sources}"\n\t\t\tVERBATIM)')],
         'master/src/MainWindow.cpp': [('closing Veyon.', 'closing BIMLéman View Room.')],
         '3rdparty/ultravnc/winvnc/winvnc/vnckeymap.cpp': [('long childCount = 0L;', ''), ('childCount++;', '')],
         'master/src/SlideshowPanel.cpp': [('Veyon Master – Slideshow', 'BIMLéman View Room – Slideshow')],

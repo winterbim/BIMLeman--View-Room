@@ -55,9 +55,20 @@ jobs:
       - name: Install locked packages
         shell: msys2 {0}
         run: pacman -U --noconfirm native-packages/*.pkg.tar.zst
-      - name: Build real Veyon Master and package native application
+      - name: Configure and compile real Veyon Master
         shell: msys2 {0}
         run: bash native-update/build.sh
+      - name: Compile all native plugins and components
+        shell: msys2 {0}
+        run: |
+          set -euo pipefail
+          cmake --build native-build --parallel 2 2>&1 | tee native-output/evidence/build-all.log
+      - name: Package native runtime, installer and corresponding sources
+        shell: msys2 {0}
+        run: |
+          export PATH="/c/Program Files/Git/cmd:$PATH"
+          export MINGW_PREFIX="$(cygpath -m "$MINGW_PREFIX")"
+          python native-update/package_native.py
       - name: Test isolated Windows installation and rollback
         shell: pwsh
         run: ./native-update/Test-NativeInstaller.ps1
@@ -83,4 +94,6 @@ jobs:
             native-output/evidence/
             native-build/CMakeCache.txt
             native-build/CMakeFiles/CMakeConfigureLog.yaml
+            native-build/translations/CMakeFiles/*.bat
+            native-build/translations/*lupdate*.txt
           if-no-files-found: warn
