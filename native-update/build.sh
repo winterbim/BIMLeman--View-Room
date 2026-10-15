@@ -6,6 +6,8 @@ mkdir -p native-output/evidence
 pacman -Q > native-output/evidence/packages.txt
 cmake --version
 c++ --version
+lupdate -version
+lrelease -version
 python -m unittest discover -s native-update -p test_native.py -v
 python native-update/prepare_native.py --source upstream-veyon --logo assets/brand/BIMLeman-View-Room-logo.png --report native-output/evidence/branding.json
 # Only the user-mode Interception library is linked; no driver is installed.

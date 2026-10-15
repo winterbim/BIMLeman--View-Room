@@ -950,6 +950,16 @@
     ]
   },
   {
+    "name": "mingw-w64-x86_64-qt6-declarative",
+    "version": "6.11.2-1",
+    "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-qt6-declarative-6.11.2-1-any.pkg.tar.zst",
+    "sha256": "f50aa48f2569b59ef99fa83e218871efd5551d4281c25596ddee2e86fce2abff",
+    "base": "mingw-w64-qt6-declarative",
+    "licenses": [
+      "spdx:LGPL-3.0-only WITH Qt-GPL-exception-1.0 AND BSD-3-Clause AND GFDL-1.3-no-invariants-only AND GPL-2.0-only AND GPL-3.0-only"
+    ]
+  },
+  {
     "name": "mingw-w64-x86_64-qt6-httpserver",
     "version": "6.11.2-1",
     "url": "https://repo.msys2.org/mingw/mingw64/mingw-w64-x86_64-qt6-httpserver-6.11.2-1-any.pkg.tar.zst",
