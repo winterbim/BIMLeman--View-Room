@@ -16,7 +16,7 @@ foreach ($entry in $manifest.files.psobject.Properties) {
 . (Join-Path $PSScriptRoot 'Get-VeyonInstallation.ps1')
 $existing = Get-VeyonInstallation
 $v = [version]$existing.Version
-if ($v.Major -ne 4 -or $v.Minor -ne 11 -or $v.Build -ne 3) { throw "Version client $v différente de 4.11.3 : aucune compatibilité certifiée, installation refusée." }
+if ($v -ne [version]'4.11.3.0') { throw "Version client $v différente de 4.11.3.0 : aucune compatibilité certifiée, installation refusée." }
 if (Get-Process -Name veyon-master,veyon-configurator -ErrorAction SilentlyContinue) { throw 'Fermez Master et Configurator avant la sauvegarde.' }
 $destination = Join-Path $env:LOCALAPPDATA "Programs/BIMLemanNative/$($manifest.buildId)"
 if (Test-Path -LiteralPath $destination) { throw 'Ce candidat est déjà présent. Aucun écrasement autorisé.' }

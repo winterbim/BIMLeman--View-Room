@@ -17,6 +17,23 @@ Les journaux complets initiaux sont conservés hors Git dans `../mission-evidenc
 les logs GitHub et les artefacts Evidence restent les preuves publiques/autorisées.
 Le registre ci-dessus n'affirme pas une compilation réussie.
 
+## Compilation native obtenue, paquet encore incomplet
+
+Run [38749376708](https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38749376708),
+commit `47fba99` : la cible demandée a réellement terminé avec
+`[32/32] Linking CXX executable master\veyon-master.exe`. La preuve complète
+est jointe dans `build-master-38749376708.txt` et l'artefact Evidence du run.
+La compilation de l'ensemble des plugins a ensuite échoué à `vnckeymap.cpp:1074`
+avec `unused-but-set-variable` pour `childCount`, compteur qui n'est jamais lu.
+Le compteur et son incrément sans effet sont retirés par le patch UltraVNC ;
+`-Werror` reste actif. Ce premier EXE compilé n'a pas encore été démarré ni livré.
+
+La cible Windows 8 définie deux fois dans les CMake upstream est alignée sur
+Windows 10, cible du Qt verrouillé ; le PCH officiel rétablit l'inclusion de
+Winsock2 avant Windows.h. Aucun masquage d'avertissement n'est ajouté.
+L'archive source de chacune des 111 bases de paquets a répondu HTTP 200 au
+contrôle du 15 octobre ; voir `dependency-source-availability.json`.
+
 ## Vérifications locales réalisées
 
 Deux tests de régression exécutés en échec avant correction puis en réussite :

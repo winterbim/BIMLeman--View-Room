@@ -18,6 +18,10 @@ UninstallIcon "${STAGE}\brand.ico"
 !insertmacro MUI_LANGUAGE "French"
 Function .onInit
   SetShellVarContext current
+  ${If} $INSTDIR != "$LOCALAPPDATA\Programs\BIMLemanNative\${BUILD_ID}"
+    SetErrorLevel 11
+    Abort
+  ${EndIf}
   ; Installation in a fresh versioned directory only. No Veyon installation is overwritten.
   ${If} ${FileExists} "$INSTDIR\*.*"
     MessageBox MB_ICONSTOP "Le dossier candidat existe déjà. Désinstallez ce candidat avant de recommencer." /SD IDOK
@@ -36,6 +40,13 @@ Section "Application native"
   CreateDirectory "$SMPROGRAMS\BIMLéman View Room ${BUILD_ID}"
   CreateShortcut "$SMPROGRAMS\BIMLéman View Room ${BUILD_ID}\BIMLéman View Room.lnk" "$INSTDIR\veyon-master.exe" "" "$INSTDIR\brand.ico"
 SectionEnd
+Function un.onInit
+  SetShellVarContext current
+  ${If} $INSTDIR != "$LOCALAPPDATA\Programs\BIMLemanNative\${BUILD_ID}"
+    SetErrorLevel 11
+    Abort
+  ${EndIf}
+FunctionEnd
 Section "Uninstall"
   SetShellVarContext current
   ; Explicit generated file list: never recursively delete an arbitrary /D target.

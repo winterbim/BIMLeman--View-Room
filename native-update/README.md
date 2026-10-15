@@ -56,7 +56,7 @@ n'est pas disponible dans cette session. Aucune compatibilité n'est garantie.
    les droits de redistribution. Il refuse si une porte n'est pas satisfaite.
    `-Pilot` autorise seulement une recette parallèle après validation technique
    et juridique ; il ne certifie pas les fonctionnalités du réseau client.
-3. `Install-Safe.ps1` vérifie chaque SHA256, la version Veyon exacte 4.11.3,
+3. `Install-Safe.ps1` vérifie chaque SHA256, la version Veyon exacte 4.11.3.0 (y compris la révision),
    la fermeture de Master/Configurator et l'absence du dossier candidat.
 4. Il sauvegarde installation, ProgramData/Veyon, AppData/Veyon, registre des
    deux portées et chemins de clés personnalisés, avec ACL limitée au compte,

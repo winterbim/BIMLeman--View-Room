@@ -1,0 +1,33 @@
+[1/32] Automatic MOC and UIC for target veyon-application-pch
+[2/32] Automatic MOC and UIC for target veyon-core
+[3/32] Automatic RCC for resources/core.qrc
+[4/32] Automatic RCC for builddata.qrc
+[5/32] Building CXX object core/CMakeFiles/veyon-application-pch.dir/cmake_pch.hxx.gch
+[6/32] Building C object core/CMakeFiles/veyon-core.dir/cmake_pch.h.gch
+[7/32] Building C object core/CMakeFiles/veyon-core.dir/Unity/unity_0_c.c.obj
+[8/32] Building RC object core/CMakeFiles/veyon-core.dir/veyon-core.dll.rc.obj
+[9/32] Building CXX object core/CMakeFiles/veyon-application-pch.dir/Unity/unity_0_cxx.cxx.obj
+[10/32] Building CXX object core/CMakeFiles/veyon-application-pch.dir/veyon-application-pch/empty_pch.cxx.obj
+[11/32] Linking CXX static library core\libveyon-application-pch.a
+[12/32] Building CXX object core/CMakeFiles/veyon-core.dir/cmake_pch.hxx.gch
+[13/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_7_cxx.cxx.obj
+[14/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_6_cxx.cxx.obj
+[15/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_5_cxx.cxx.obj
+[16/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_4_cxx.cxx.obj
+[17/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_3_cxx.cxx.obj
+[18/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_2_cxx.cxx.obj
+[19/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_1_cxx.cxx.obj
+[20/32] Building CXX object core/CMakeFiles/veyon-core.dir/veyon-core_autogen/3YJK5W5UP7/qrc_core.cpp.obj
+[21/32] Building CXX object core/CMakeFiles/veyon-core.dir/veyon-core_autogen/EJRQKI7XPS/qrc_builddata.cpp.obj
+[22/32] Building CXX object core/CMakeFiles/veyon-core.dir/Unity/unity_0_cxx.cxx.obj
+[23/32] Linking CXX shared library core\veyon-core.dll
+[24/32] Automatic MOC and UIC for target veyon-master
+AutoMoc: D:/a/BIMLeman--View-Room/BIMLeman--View-Room/upstream-veyon/master/src/DocumentationFigureCreator.h: note: No relevant classes found. No output generated.
+[25/32] Automatic RCC for resources/master.qrc
+[26/32] Building CXX object master/CMakeFiles/veyon-master.dir/Unity/unity_3_cxx.cxx.obj
+[27/32] Building CXX object master/CMakeFiles/veyon-master.dir/Unity/unity_2_cxx.cxx.obj
+[28/32] Building CXX object master/CMakeFiles/veyon-master.dir/Unity/unity_1_cxx.cxx.obj
+[29/32] Building RC object master/CMakeFiles/veyon-master.dir/veyon-master.exe.rc.obj
+[30/32] Building CXX object master/CMakeFiles/veyon-master.dir/veyon-master_autogen/3YJK5W5UP7/qrc_master.cpp.obj
+[31/32] Building CXX object master/CMakeFiles/veyon-master.dir/Unity/unity_0_cxx.cxx.obj
+[32/32] Linking CXX executable master\veyon-master.exe

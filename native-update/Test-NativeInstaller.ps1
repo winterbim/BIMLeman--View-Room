@@ -10,6 +10,18 @@ foreach ($script in Get-ChildItem "$PSScriptRoot/*.ps1") {
     [void][System.Management.Automation.Language.Parser]::ParseFile($script.FullName, [ref]$tokens, [ref]$errors)
     if ($errors.Count) { throw ($errors | Out-String) }
 }
+# Install a checksum-pinned OFFICIAL Veyon in this disposable runner as rollback baseline.
+$officialSetup = Join-Path $env:RUNNER_TEMP 'official-veyon-4.11.3.0.exe'
+Invoke-WebRequest 'https://github.com/veyon/veyon/releases/download/v4.11.3/veyon-4.11.3.0-win64-setup.exe' -OutFile $officialSetup -MaximumRetryCount 3
+if ((Get-FileHash $officialSetup -Algorithm SHA256).Hash -ne '6acad4fc310e915a631477373f7649d51b74fbe8c41c5b0ab38d2fa852876b73') { throw 'Official reference installer checksum mismatch.' }
+$reference = Start-Process $officialSetup -ArgumentList @('/S','/NoInterception') -Wait -PassThru
+if ($reference.ExitCode -ne 0) { throw 'Official reference installation failed.' }
+$originalDirectory = Join-Path $env:ProgramFiles 'Veyon'
+$originalMaster = Join-Path $originalDirectory 'veyon-master.exe'
+$originalHashes = @{}
+Get-ChildItem $originalDirectory -Recurse -File | ForEach-Object { $originalHashes[$_.FullName] = (Get-FileHash $_.FullName -Algorithm SHA256).Hash }
+if (-not $originalHashes.ContainsKey($originalMaster)) { throw 'Official Master missing.' }
+$originalService = (Get-Service VeyonService).Status
 $out = Join-Path $PWD 'native-output'
 $manifestPath = Join-Path $out 'manifest.json'
 $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
@@ -20,6 +32,10 @@ $evidence = Join-Path $out 'evidence'
 $env:PATH = "$env:SystemRoot\System32;$env:SystemRoot"
 $env:QT_PLUGIN_PATH = $null
 $env:QML2_IMPORT_PATH = $null
+# An overridden destination must be rejected before any file write.
+$forbidden = Join-Path $env:RUNNER_TEMP 'native-forbidden-target'
+$p = Start-Process $installer -ArgumentList @('/S', "/D=$forbidden") -PassThru -Wait
+if ($p.ExitCode -eq 0 -or (Test-Path $forbidden)) { throw 'Installer accepted an unsafe custom destination.' }
 $p = Start-Process $installer -ArgumentList @('/S') -PassThru -Wait
 if ($p.ExitCode -ne 0) { throw "NSIS install failed: $($p.ExitCode)" }
 $master = Join-Path $installed 'veyon-master.exe'
@@ -78,7 +94,26 @@ Set-Content $sentinel 'must survive'
 & "$out/Uninstall-Safe.ps1" -BuildId $manifest.buildId
 if (-not (Test-Path $sentinel) -or (Get-Content $sentinel) -ne 'must survive') { throw 'Rollback deleted shared Veyon data.' }
 if (Test-Path $master) { throw 'Rollback left native Master installed.' }
-if (Get-Service VeyonService -ErrorAction SilentlyContinue) { throw 'Parallel installer unexpectedly created a service.' }
+foreach ($file in $originalHashes.Keys) {
+    if (-not (Test-Path $file) -or (Get-FileHash $file -Algorithm SHA256).Hash -ne $originalHashes[$file]) { throw "Official Veyon file changed: $file" }
+}
+if ((Get-Service VeyonService).Status -ne $originalService) { throw 'Parallel installation changed official Veyon service state.' }
+# Confirm the original CLI still starts with its original native runtime after rollback.
+& (Join-Path $originalDirectory 'veyon-cli.exe') help | Out-File (Join-Path $evidence 'official-cli-after-rollback.txt') -Encoding UTF8
+if ($LASTEXITCODE -ne 0) { throw 'Official Veyon CLI no longer starts after rollback.' }
+# Prove the official Master UI can be opened again on the same disposable desktop.
+$reference = Start-Process $originalMaster -PassThru
+$deadline = [DateTime]::UtcNow.AddSeconds(30)
+do {
+    Start-Sleep -Milliseconds 250
+    $reference.Refresh()
+} while (-not $reference.HasExited -and $reference.MainWindowTitle -ne 'Veyon Master' -and [DateTime]::UtcNow -lt $deadline)
+if ($reference.HasExited -or $reference.MainWindowTitle -ne 'Veyon Master') {
+    if (-not $reference.HasExited) { $reference.Kill() }
+    throw 'Official Master did not reopen after rollback.'
+}
+[void]$reference.CloseMainWindow()
+if (-not $reference.WaitForExit(15000)) { $reference.Kill(); throw 'Official Master did not close normally.' }
 $manifest.windowsValidated = $true
 $manifest | ConvertTo-Json -Depth 8 | Set-Content $manifestPath -Encoding UTF8
-@{ installation = 'PASS'; nativeStartup = 'PASS'; embeddedIcon = 'MATCHED'; title = 'PASS'; splash = 'PASS'; uninstall = 'PASS'; sharedDataPreserved = 'PASS'; serviceUnchanged = 'PASS'; clientNetwork = 'PENDING-HARDWARE'; clientVersion = 'UNKNOWN'; signed = $false } | ConvertTo-Json | Set-Content (Join-Path $evidence 'windows-tests.json') -Encoding UTF8
+@{ installation = 'PASS'; nativeStartup = 'PASS'; embeddedIcon = 'MATCHED'; title = 'PASS'; splash = 'PASS'; uninstall = 'PASS'; sharedDataPreserved = 'PASS'; serviceUnchanged = 'PASS'; officialMasterReopened = 'PASS'; originalFilesUnchanged = 'PASS'; clientNetwork = 'PENDING-HARDWARE'; clientVersion = 'UNKNOWN'; signed = $false } | ConvertTo-Json | Set-Content (Join-Path $evidence 'windows-tests.json') -Encoding UTF8

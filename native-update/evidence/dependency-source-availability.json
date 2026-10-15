@@ -1,0 +1,668 @@
+[
+  {
+    "base": "mingw-w64-aom",
+    "version": "3.15.2-1",
+    "status": 200,
+    "length": 6614775
+  },
+  {
+    "base": "mingw-w64-binutils",
+    "version": "2.47-4",
+    "status": 200,
+    "length": 39012346
+  },
+  {
+    "base": "mingw-w64-brotli",
+    "version": "1.2.0-1",
+    "status": 200,
+    "length": 644113
+  },
+  {
+    "base": "mingw-w64-bzip2",
+    "version": "1.0.8-4",
+    "status": 200,
+    "length": 818825
+  },
+  {
+    "base": "mingw-w64-c-ares",
+    "version": "1.34.8-1",
+    "status": 200,
+    "length": 1035656
+  },
+  {
+    "base": "mingw-w64-ca-certificates",
+    "version": "20260816-1",
+    "status": 200,
+    "length": 282789
+  },
+  {
+    "base": "mingw-w64-cmake",
+    "version": "4.4.4-3",
+    "status": 200,
+    "length": 13251241
+  },
+  {
+    "base": "mingw-w64-cppdap",
+    "version": "1.65.r11.g6464cd7-1",
+    "status": 200,
+    "length": 470270
+  },
+  {
+    "base": "mingw-w64-crt",
+    "version": "14.0.0.r426.g4564ee4b5-1",
+    "status": 200,
+    "length": 54805035
+  },
+  {
+    "base": "mingw-w64-curl",
+    "version": "8.23.0-1",
+    "status": 200,
+    "length": 3000806
+  },
+  {
+    "base": "mingw-w64-cyrus-sasl",
+    "version": "2.1.28-6",
+    "status": 200,
+    "length": 3716605
+  },
+  {
+    "base": "mingw-w64-dav1d",
+    "version": "1.5.4-1",
+    "status": 200,
+    "length": 1041020
+  },
+  {
+    "base": "mingw-w64-dbus",
+    "version": "1.16.2-4",
+    "status": 200,
+    "length": 1120308
+  },
+  {
+    "base": "mingw-w64-double-conversion",
+    "version": "3.4.0-1",
+    "status": 200,
+    "length": 7037915
+  },
+  {
+    "base": "mingw-w64-expat",
+    "version": "2.9.0-1",
+    "status": 200,
+    "length": 536681
+  },
+  {
+    "base": "mingw-w64-freetype",
+    "version": "2.15.0-1",
+    "status": 200,
+    "length": 2720468
+  },
+  {
+    "base": "mingw-w64-fribidi",
+    "version": "1.0.17-1",
+    "status": 200,
+    "length": 1204778
+  },
+  {
+    "base": "mingw-w64-gcc",
+    "version": "16.2.0-6",
+    "status": 200,
+    "length": 107229138
+  },
+  {
+    "base": "mingw-w64-gdbm",
+    "version": "1.26-1",
+    "status": 200,
+    "length": 1236891
+  },
+  {
+    "base": "mingw-w64-gettext",
+    "version": "1.0-1",
+    "status": 200,
+    "length": 10267655
+  },
+  {
+    "base": "mingw-w64-giflib",
+    "version": "6.1.3-1",
+    "status": 200,
+    "length": 470866
+  },
+  {
+    "base": "mingw-w64-glib2",
+    "version": "2.90.1-1",
+    "status": 200,
+    "length": 5875958
+  },
+  {
+    "base": "mingw-w64-gmp",
+    "version": "6.3.0-2",
+    "status": 200,
+    "length": 2097066
+  },
+  {
+    "base": "mingw-w64-gnupg",
+    "version": "2.4.9-1",
+    "status": 200,
+    "length": 8077278
+  },
+  {
+    "base": "mingw-w64-gnutls",
+    "version": "3.8.13-3",
+    "status": 200,
+    "length": 7280076
+  },
+  {
+    "base": "mingw-w64-graphite2",
+    "version": "1.3.15-1",
+    "status": 200,
+    "length": 13317053
+  },
+  {
+    "base": "mingw-w64-harfbuzz",
+    "version": "14.6.0-1",
+    "status": 200,
+    "length": 20299472
+  },
+  {
+    "base": "mingw-w64-headers",
+    "version": "14.0.0.r426.g4564ee4b5-1",
+    "status": 200,
+    "length": 54807433
+  },
+  {
+    "base": "mingw-w64-icu",
+    "version": "78.3-4",
+    "status": 200,
+    "length": 26077652
+  },
+  {
+    "base": "mingw-w64-isl",
+    "version": "0.28-1",
+    "status": 200,
+    "length": 1944224
+  },
+  {
+    "base": "mingw-w64-jbigkit",
+    "version": "2.1-6",
+    "status": 200,
+    "length": 443470
+  },
+  {
+    "base": "mingw-w64-jsoncpp",
+    "version": "1.9.8-1",
+    "status": 200,
+    "length": 206700
+  },
+  {
+    "base": "mingw-w64-lcms2",
+    "version": "2.19.1-1",
+    "status": 200,
+    "length": 5709029
+  },
+  {
+    "base": "mingw-w64-lerc",
+    "version": "4.1.1-1",
+    "status": 200,
+    "length": 4056783
+  },
+  {
+    "base": "mingw-w64-libarchive",
+    "version": "3.8.10-1",
+    "status": 200,
+    "length": 6738125
+  },
+  {
+    "base": "mingw-w64-libassuan",
+    "version": "2.5.7-2",
+    "status": 200,
+    "length": 608354
+  },
+  {
+    "base": "mingw-w64-libavif",
+    "version": "1.4.2-1",
+    "status": 200,
+    "length": 14472040
+  },
+  {
+    "base": "mingw-w64-libb2",
+    "version": "0.98.1-3",
+    "status": 200,
+    "length": 538092
+  },
+  {
+    "base": "mingw-w64-libdeflate",
+    "version": "1.26-1",
+    "status": 200,
+    "length": 200156
+  },
+  {
+    "base": "mingw-w64-libffi",
+    "version": "3.8.0-1",
+    "status": 200,
+    "length": 1582238
+  },
+  {
+    "base": "mingw-w64-libgcrypt",
+    "version": "1.12.4-1",
+    "status": 200,
+    "length": 4475616
+  },
+  {
+    "base": "mingw-w64-libgpg-error",
+    "version": "1.61-1",
+    "status": 200,
+    "length": 1128121
+  },
+  {
+    "base": "mingw-w64-libiconv",
+    "version": "1.19-1",
+    "status": 200,
+    "length": 5131029
+  },
+  {
+    "base": "mingw-w64-libidn2",
+    "version": "2.3.8-4",
+    "status": 200,
+    "length": 2147337
+  },
+  {
+    "base": "mingw-w64-libimagequant",
+    "version": "4.4.1-1",
+    "status": 200,
+    "length": 90303
+  },
+  {
+    "base": "mingw-w64-libjpeg-turbo",
+    "version": "3.2.0-1",
+    "status": 200,
+    "length": 2536411
+  },
+  {
+    "base": "mingw-w64-libksba",
+    "version": "1.6.8-1",
+    "status": 200,
+    "length": 718733
+  },
+  {
+    "base": "mingw-w64-libpng",
+    "version": "1.6.59-1",
+    "status": 200,
+    "length": 1611403
+  },
+  {
+    "base": "mingw-w64-libpsl",
+    "version": "0.21.5-3",
+    "status": 200,
+    "length": 6829368
+  },
+  {
+    "base": "mingw-w64-libraqm",
+    "version": "0.11.0-1",
+    "status": 200,
+    "length": 320334
+  },
+  {
+    "base": "mingw-w64-libssh2",
+    "version": "1.11.1-2",
+    "status": 200,
+    "length": 1094498
+  },
+  {
+    "base": "mingw-w64-libsystre",
+    "version": "1.0.2-3",
+    "status": 200,
+    "length": 3174
+  },
+  {
+    "base": "mingw-w64-libtasn1",
+    "version": "4.21.0-1",
+    "status": 200,
+    "length": 1732161
+  },
+  {
+    "base": "mingw-w64-libtiff",
+    "version": "4.7.2-1",
+    "status": 200,
+    "length": 4077229
+  },
+  {
+    "base": "mingw-w64-libtool",
+    "version": "2.6.2-1",
+    "status": 200,
+    "length": 1101431
+  },
+  {
+    "base": "mingw-w64-libtre",
+    "version": "0.9.0-2",
+    "status": 200,
+    "length": 840641
+  },
+  {
+    "base": "mingw-w64-libunistring",
+    "version": "1.4.2-1",
+    "status": 200,
+    "length": 4770800
+  },
+  {
+    "base": "mingw-w64-libuv",
+    "version": "1.53.0-1",
+    "status": 200,
+    "length": 1394335
+  },
+  {
+    "base": "mingw-w64-libvncserver",
+    "version": "0.9.15-3",
+    "status": 200,
+    "length": 590887
+  },
+  {
+    "base": "mingw-w64-libwebp",
+    "version": "1.6.0-1",
+    "status": 200,
+    "length": 2589761
+  },
+  {
+    "base": "mingw-w64-libxml2",
+    "version": "2.15.4-1",
+    "status": 200,
+    "length": 3805864
+  },
+  {
+    "base": "mingw-w64-libyuv",
+    "version": "1924.r2921.644251f25-2",
+    "status": 200,
+    "length": 57193345
+  },
+  {
+    "base": "mingw-w64-lz4",
+    "version": "1.10.0-1",
+    "status": 200,
+    "length": 387730
+  },
+  {
+    "base": "mingw-w64-lzo2",
+    "version": "2.10-3",
+    "status": 200,
+    "length": 599995
+  },
+  {
+    "base": "mingw-w64-md4c",
+    "version": "0.6.0-1",
+    "status": 200,
+    "length": 269987
+  },
+  {
+    "base": "mingw-w64-mpc",
+    "version": "1.4.1-1",
+    "status": 200,
+    "length": 533531
+  },
+  {
+    "base": "mingw-w64-mpdecimal",
+    "version": "4.0.1-3",
+    "status": 200,
+    "length": 315056
+  },
+  {
+    "base": "mingw-w64-mpfr",
+    "version": "4.2.2-3",
+    "status": 200,
+    "length": 1507413
+  },
+  {
+    "base": "mingw-w64-ncurses",
+    "version": "6.6-4",
+    "status": 200,
+    "length": 3785847
+  },
+  {
+    "base": "mingw-w64-nettle",
+    "version": "4.0-1",
+    "status": 200,
+    "length": 2630115
+  },
+  {
+    "base": "mingw-w64-nghttp2",
+    "version": "1.70.0-1",
+    "status": 200,
+    "length": 2021492
+  },
+  {
+    "base": "mingw-w64-nghttp3",
+    "version": "1.18.0-1",
+    "status": 200,
+    "length": 414019
+  },
+  {
+    "base": "mingw-w64-ngtcp2",
+    "version": "1.25.0-1",
+    "status": 200,
+    "length": 712453
+  },
+  {
+    "base": "mingw-w64-ninja",
+    "version": "1.13.2-1",
+    "status": 200,
+    "length": 294243
+  },
+  {
+    "base": "mingw-w64-npth",
+    "version": "1.8-2",
+    "status": 200,
+    "length": 319675
+  },
+  {
+    "base": "mingw-w64-nsis",
+    "version": "3.13-2",
+    "status": 200,
+    "length": 1828127
+  },
+  {
+    "base": "mingw-w64-nspr",
+    "version": "4.40-1",
+    "status": 200,
+    "length": 1015531
+  },
+  {
+    "base": "mingw-w64-nss",
+    "version": "3.131-1",
+    "status": 200,
+    "length": 87340620
+  },
+  {
+    "base": "mingw-w64-openjpeg2",
+    "version": "2.5.4-2",
+    "status": 200,
+    "length": 2156125
+  },
+  {
+    "base": "mingw-w64-openldap",
+    "version": "2.6.12-1",
+    "status": 200,
+    "length": 6492413
+  },
+  {
+    "base": "mingw-w64-openssl",
+    "version": "3.6.5-1",
+    "status": 200,
+    "length": 54979777
+  },
+  {
+    "base": "mingw-w64-p11-kit",
+    "version": "0.26.5-1",
+    "status": 200,
+    "length": 1094024
+  },
+  {
+    "base": "mingw-w64-pcre2",
+    "version": "10.49-1",
+    "status": 200,
+    "length": 2183818
+  },
+  {
+    "base": "mingw-w64-pkgconf",
+    "version": "1~3.0.8-1",
+    "status": 200,
+    "length": 270294
+  },
+  {
+    "base": "mingw-w64-python",
+    "version": "3.14.8-1",
+    "status": 200,
+    "length": 24201249
+  },
+  {
+    "base": "mingw-w64-python-packaging",
+    "version": "26.3-1",
+    "status": 200,
+    "length": 314795
+  },
+  {
+    "base": "mingw-w64-python-pillow",
+    "version": "12.3.0-1",
+    "status": 200,
+    "length": 45719548
+  },
+  {
+    "base": "mingw-w64-qca",
+    "version": "2.3.10-2",
+    "status": 200,
+    "length": 769870
+  },
+  {
+    "base": "mingw-w64-qt6-5compat",
+    "version": "6.11.2-1",
+    "status": 200,
+    "length": 14623158
+  },
+  {
+    "base": "mingw-w64-qt6-base",
+    "version": "6.11.2-2",
+    "status": 200,
+    "length": 50590681
+  },
+  {
+    "base": "mingw-w64-qt6-httpserver",
+    "version": "6.11.2-1",
+    "status": 200,
+    "length": 188313
+  },
+  {
+    "base": "mingw-w64-qt6-svg",
+    "version": "6.11.2-1",
+    "status": 200,
+    "length": 2343776
+  },
+  {
+    "base": "mingw-w64-qt6-tools",
+    "version": "6.11.2-2",
+    "status": 200,
+    "length": 10233215
+  },
+  {
+    "base": "mingw-w64-qt6-websockets",
+    "version": "6.11.2-1",
+    "status": 200,
+    "length": 454208
+  },
+  {
+    "base": "mingw-w64-rav1e",
+    "version": "0.8.1-1",
+    "status": 200,
+    "length": 3033670
+  },
+  {
+    "base": "mingw-w64-readline",
+    "version": "8.3.003-1",
+    "status": 200,
+    "length": 3355361
+  },
+  {
+    "base": "mingw-w64-rhash",
+    "version": "1.4.6-1",
+    "status": 200,
+    "length": 459497
+  },
+  {
+    "base": "mingw-w64-sqlite3",
+    "version": "3.54.0-1",
+    "status": 200,
+    "length": 25776167
+  },
+  {
+    "base": "mingw-w64-svt-av1",
+    "version": "4.2.0-1",
+    "status": 200,
+    "length": 11057168
+  },
+  {
+    "base": "mingw-w64-tcl",
+    "version": "8.6.18-1",
+    "status": 200,
+    "length": 11753117
+  },
+  {
+    "base": "mingw-w64-termcap",
+    "version": "1.3.1-8",
+    "status": 200,
+    "length": 441166
+  },
+  {
+    "base": "mingw-w64-tk",
+    "version": "8.6.18-1",
+    "status": 200,
+    "length": 4565834
+  },
+  {
+    "base": "mingw-w64-tzdata",
+    "version": "2026e-1",
+    "status": 200,
+    "length": 693452
+  },
+  {
+    "base": "mingw-w64-vulkan-headers",
+    "version": "1~1.4.363.0-1",
+    "status": 200,
+    "length": 3358958
+  },
+  {
+    "base": "mingw-w64-vulkan-loader",
+    "version": "1~1.4.363.0-1",
+    "status": 200,
+    "length": 1850297
+  },
+  {
+    "base": "mingw-w64-windows-default-manifest",
+    "version": "20260815-1",
+    "status": 200,
+    "length": 1973
+  },
+  {
+    "base": "mingw-w64-wineditline",
+    "version": "2.208-1",
+    "status": 200,
+    "length": 27113
+  },
+  {
+    "base": "mingw-w64-winpthreads",
+    "version": "14.0.0.r426.g4564ee4b5-2",
+    "status": 200,
+    "length": 55135349
+  },
+  {
+    "base": "mingw-w64-xz",
+    "version": "5.8.4-1",
+    "status": 200,
+    "length": 1569458
+  },
+  {
+    "base": "mingw-w64-zlib",
+    "version": "1.3.2-2",
+    "status": 200,
+    "length": 1326375
+  },
+  {
+    "base": "mingw-w64-zstd",
+    "version": "1.5.7-2",
+    "status": 200,
+    "length": 2402010
+  }
+]
