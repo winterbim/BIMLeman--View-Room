@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "declaredOn": "2026-10-15",
+  "declaredBy": "requester in this delivery session",
+  "interceptionUsage": "strictly non-commercial",
+  "interceptionRevision": "39eecbbc46a52e0402f783b872ef62b0254a896a",
+  "licenseConditions": "https://github.com/oblitum/Interception#license",
+  "clientVersionDeclared": "4.11.3",
+  "clientFileRevision": "checked on installation; must equal 4.11.3.0",
+  "clientValidated": false,
+  "deliveryStage": "parallel pilot; classroom acceptance pending"
+}

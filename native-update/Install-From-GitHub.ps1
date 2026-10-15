@@ -19,6 +19,7 @@ foreach ($run in $runs) {
     if (-not (Test-Path $manifestPath)) { continue }
     $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($manifest.commit -ne $run.headSha -or -not $manifest.native -or -not $manifest.windowsValidated -or -not $manifest.redistributionAuthorized) { continue }
+    if ($manifest.redistributionScope -ne 'non-commercial') { continue }
     if (-not $manifest.clientValidated -and -not $Pilot) { continue }
     foreach ($entry in $manifest.files.psobject.Properties) {
         if ([IO.Path]::GetFileName($entry.Name) -ne $entry.Name -or $entry.Name.Contains('..')) { throw 'Chemin invalide dans le manifeste.' }

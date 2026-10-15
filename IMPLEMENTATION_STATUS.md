@@ -16,11 +16,13 @@ Travail sur `feature/veyon-native-bimleman`, aucune fusion dans main.
 - Désinstallation et retour au Master officiel testés sur le runner jetable :
   fichiers et état du service de référence inchangés, fenêtre officielle rouverte.
   La restauration de paramètres et clés réels chez le client reste non testée.
-- Version du PC client INCONNUE : candidat basé sur Veyon 4.11.3.0 seulement.
+- Version déclarée du PC client : 4.11.3 ; révision 4.11.3.0 contrôlée à l'installation.
   Aucun test matériel client réussi n'est revendiqué.
-- Distribution de l'installateur bloquée par défaut tant que les droits
-  commerciaux Interception ne sont pas clarifiés. La recette client est une
-  seconde porte indépendante ; la commande d'installation refuse sans validation.
+- Usage strictement non commercial confirmé par le demandeur le 15 octobre 2026.
+  Diffusion pilote préparée sous les conditions non commerciales d'Interception ;
+  aucune autorisation commerciale revendiquée. Sources et licences accompagnent
+  les binaires. La recette client reste une porte indépendante : seule l'option
+  explicite `-Pilot` autorise la recette parallèle avant sa validation.
 
 Rapport et procédure : [native-update/README.md](native-update/README.md).
 Recette technique : [native-update/evidence/WINDOWS-REPORT.md](native-update/evidence/WINDOWS-REPORT.md).

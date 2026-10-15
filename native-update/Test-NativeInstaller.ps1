@@ -116,4 +116,43 @@ if ($reference.HasExited -or $reference.MainWindowTitle -ne 'Veyon Master') {
 if (-not $reference.WaitForExit(15000)) { $reference.Kill(); throw 'Official Master did not close normally.' }
 $manifest.windowsValidated = $true
 $manifest | ConvertTo-Json -Depth 8 | Set-Content $manifestPath -Encoding UTF8
-@{ installation = 'PASS'; nativeStartup = 'PASS'; embeddedIcon = 'MATCHED'; title = 'PASS'; splash = 'PASS'; uninstall = 'PASS'; sharedDataPreserved = 'PASS'; serviceUnchanged = 'PASS'; officialMasterReopened = 'PASS'; originalFilesUnchanged = 'PASS'; clientNetwork = 'PENDING-HARDWARE'; clientVersion = 'UNKNOWN'; signed = $false } | ConvertTo-Json | Set-Content (Join-Path $evidence 'windows-tests.json') -Encoding UTF8
+$safeWrapper = 'SKIPPED-NO-DISTRIBUTION-SCOPE'
+if ($manifest.redistributionAuthorized) {
+    # Production must remain blocked until a real classroom acceptance report exists.
+    $refused = $false
+    try { & "$out/Install-Safe.ps1" } catch {
+        if ($_.Exception.Message -notlike '*Recette client non validée*') { throw }
+        $refused = $true
+    }
+    if (-not $refused -or (Test-Path $installed)) { throw 'Production gate was bypassed.' }
+    # Exercise the EXACT pilot wrapper provided to the teacher, including private backups.
+    & "$out/Install-Safe.ps1" -Pilot
+    if (-not (Test-Path $master)) { throw 'Pilot wrapper did not install native Master.' }
+    $backupRoot = Join-Path $env:LOCALAPPDATA 'BIMLemanNativeBackups'
+    $backups = @(Get-ChildItem $backupRoot -Directory)
+    if ($backups.Count -ne 1) { throw 'Unexpected number of pilot backups.' }
+    $backup = $backups[0].FullName
+    if (-not (Get-Acl $backup).AreAccessRulesProtected) { throw 'Private backup inherits permissions.' }
+    $permittedSids = @([Security.Principal.WindowsIdentity]::GetCurrent().User.Value, 'S-1-5-18', 'S-1-5-32-544')
+    foreach ($rule in (Get-Acl $backup).Access) {
+        if ($rule.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -notin $permittedSids) { throw 'Unexpected backup access rule.' }
+    }
+    $backupMaster = Join-Path $backup 'original-installation/veyon-master.exe'
+    if ((Get-FileHash $backupMaster -Algorithm SHA256).Hash -ne $originalHashes[$originalMaster]) { throw 'Official Master backup differs.' }
+    foreach ($keyDir in @('PrivateKeyBaseDir','PublicKeyBaseDir')) {
+        if (@(Get-ChildItem (Join-Path $backup $keyDir) -File -Recurse).Count -eq 0) { throw "External key directory not backed up: $keyDir" }
+    }
+    $backupIndex = @(Get-Content (Join-Path $backup 'checksums.json') -Raw -Encoding UTF8 | ConvertFrom-Json)
+    foreach ($entry in $backupIndex) {
+        if ((Get-FileHash (Join-Path $backup $entry.File) -Algorithm SHA256).Hash -ne $entry.SHA256) { throw 'Backup checksum mismatch.' }
+    }
+    & "$out/Uninstall-Safe.ps1" -BuildId $manifest.buildId
+    foreach ($file in $originalHashes.Keys) {
+        if ((Get-FileHash $file -Algorithm SHA256).Hash -ne $originalHashes[$file]) { throw 'Pilot wrapper changed original files.' }
+    }
+    if ((Get-Service VeyonService).Status -ne $originalService -or -not (Test-Path $sentinel)) { throw 'Pilot wrapper changed shared state.' }
+    $safeWrapper = 'PASS'
+}
+Copy-Item $manifestPath (Join-Path $evidence 'manifest.json')
+(Get-FileHash $installer -Algorithm SHA256).Hash.ToLowerInvariant() + '  ' + $manifest.installer | Set-Content (Join-Path $evidence 'installer.sha256') -Encoding UTF8
+@{ installation = 'PASS'; nativeStartup = 'PASS'; embeddedIcon = 'MATCHED'; title = 'PASS'; splash = 'PASS'; uninstall = 'PASS'; sharedDataPreserved = 'PASS'; serviceUnchanged = 'PASS'; officialMasterReopened = 'PASS'; originalFilesUnchanged = 'PASS'; safePilotWrapper = $safeWrapper; clientNetwork = 'PENDING-HARDWARE'; clientVersionDeclared = '4.11.3'; clientValidated = $false; signed = $false } | ConvertTo-Json | Set-Content (Join-Path $evidence 'windows-tests.json') -Encoding UTF8

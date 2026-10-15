@@ -9,8 +9,9 @@ legacy n'est plus déclenché par les modifications natives.
 La compilation native complète, le packaging NSIS et la recette automatisée
 sur Windows 2022 ont réussi dans le [run 38754270228](https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38754270228).
 Le [rapport avec captures et limites](evidence/WINDOWS-REPORT.md) distingue cette
-réussite technique de la livraison client, encore bloquée. L'installateur n'est
-pas publié : droits Interception, version et recette client non validés.
+réussite technique de la recette client. Le demandeur a ensuite confirmé Veyon
+4.11.3 et un usage strictement non commercial. Une nouvelle livraison pilote
+est préparée dans ce cadre ; la recette du réseau client reste à réaliser.
 
 ## Sources et compilation
 
@@ -34,16 +35,25 @@ Un run vert signifie que les contrôles qu'il a exécutés ont réussi, pas que 
 réseau du client est certifié. Le manifeste distingue `windowsValidated`,
 `clientValidated` et `redistributionAuthorized`. La diffusion des installateurs
 est désactivée tant que la variable GitHub `BIMLEMAN_INTERCEPTION_REDISTRIBUTION`
-ne vaut pas `authorized`, après justification des droits applicables.
+ne vaut pas `non-commercial`, conformément à la déclaration du demandeur tracée
+dans `distribution-policy.json`. Le manifeste indique ce périmètre explicitement.
 
 Veyon permet la dérivation sous GPL-2.0-or-later ; les mentions, COPYING et le
 dialogue juridique d'origine sont conservés. Les archives de sources et scripts,
-y compris les sources des bibliothèques MSYS2, sont prévues avec chaque candidat.
+y compris les sources des bibliothèques MSYS2, sont publiées dans l'artefact
+`BIMLeman-Native-Veyon-Sources` du même run, avant le candidat binaire.
+Le manifeste donne leurs SHA256 ; `SOURCES.txt` installé indique leur emplacement.
+Les deux artefacts restent disponibles 90 jours : conserver les deux pour toute
+redistribution ultérieure. L'installation ne nécessite pas de télécharger les
+archives de sources, qui restent accessibles au même endroit et aux mêmes comptes.
 La licence propriétaire historique de ce dépôt ne couvre pas cette dérivation.
-Interception annonce une licence distincte pour l'usage commercial :
+Interception prévoit LGPLv3 et la redistribution des actifs binaires associés
+pour l'usage non commercial lorsque les pilotes sont accédés via sa bibliothèque
+et son API ; Veyon utilise cette API. Il annonce une licence distincte pour l'usage commercial :
 https://github.com/oblitum/Interception#license . L'autorisation dont bénéficierait
 le Veyon officiel ne démontre pas celle de ce distributeur indépendant. Aucun
-droit commercial n'est supposé acquis. Qt est redistribué dynamiquement avec
+droit commercial n'est supposé acquis. Les textes LGPLv3, GPLv3 et les conditions
+Interception sont aussi installés dans `licenses/interception`. Qt est redistribué dynamiquement avec
 ses notices et sources ; ni restriction de modification ni licence propriétaire
 supplémentaire ne doit être imposée à ces composants.
 
@@ -53,8 +63,9 @@ Sur PowerShell Windows x64 : `& .\Get-VeyonInstallation.ps1`.
 Ce script lit les chemins, la version et le SHA256 du Master et l'état du service.
 Il ne lance ni CLI Veyon ni service et ne lit pas le contenu des clés.
 Si l'installation est absente ou ambiguë, il refuse de choisir.
-La version 4.11.3 est seulement un candidat figé : la version réelle du client
-n'est pas disponible dans cette session. Aucune compatibilité n'est garantie.
+Le demandeur a confirmé la version affichée 4.11.3. La révision du fichier reste
+vérifiée automatiquement et doit être exactement 4.11.3.0. Cette concordance
+de version ne remplace pas la recette fonctionnelle du réseau client.
 
 ## Installation et retour arrière
 

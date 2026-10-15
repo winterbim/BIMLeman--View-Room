@@ -57,6 +57,17 @@ copy(Path('upstream-veyon/master/data/veyon-master.ico'), STAGE/'brand.ico')
 copy(Path('upstream-veyon/master/resources/bimleman-icon.png'), STAGE/'brand.png')
 copy(Path('native-update/NOTICE.txt'), STAGE/'NOTICE.txt')
 shutil.copytree(PREFIX/'share/licenses', STAGE/'licenses', dirs_exist_ok=True)
+copy(Path('interception/licenses/non-commercial-usage/LGPL 3.0.txt'), STAGE/'licenses/interception/LGPL-3.0.txt')
+copy(Path('interception/README.md'), STAGE/'licenses/interception/README.md')
+copy(PREFIX/'share/licenses/qt6-tools/GPL-3.0-only.txt', STAGE/'licenses/interception/GPL-3.0.txt')
+run_url = 'https://github.com/winterbim/BIMLeman--View-Room/actions/runs/' + os.environ['GITHUB_RUN_ID']
+(STAGE/'SOURCES.txt').write_text(
+    'Corresponding sources for this exact build: ' + BUILD_ID + '\n' + run_url + '\n'
+    'Download the BIMLeman-Native-Veyon-Sources artifact from this same run.\n'
+    'It contains Veyon, recursive submodules, Interception, build/installation scripts,\n'
+    'branding assets and the locked dependency source packages.\n'
+    'Binary and source artifacts have the same 90-day retention. Preserve both when redistributing.\n'
+    'Interception scope declared by the requester: strictly non-commercial.\n', encoding='utf-8')
 (STAGE/'qt.conf').write_text('[Paths]\nPrefix=.\nPlugins=.\nTranslations=translations\n', encoding='utf-8')
 # Resolve imports recursively using ONLY the locked MinGW prefix, never PATH or a developer PC.
 known = {p.name.lower(): p for p in (PREFIX/'bin').glob('*.dll')}
@@ -127,11 +138,15 @@ for item in entries:
 subprocess.run(['makensis', '-DVERSION='+VERSION, '-DBUILD_ID='+BUILD_ID,
                 '-DOUTPUT='+str(OUT/f'BIMLeman-{BUILD_ID}-setup.exe'),
                 '-DSTAGE='+str(STAGE), str(ROOT/'native-update/NativeMaster.nsi')], check=True)
-files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.iterdir() if p.is_file() and p.name != 'manifest.json'}
+files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.iterdir()
+         if p.is_file() and p.name != 'manifest.json' and not p.name.endswith('sources.tar.gz')}
+source_files = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.glob('*sources.tar.gz')}
+scope = os.environ.get('REDISTRIBUTION_SCOPE', '')
 manifest = {'schema': 1, 'product': 'BIMLéman View Room', 'native': True,
             'upstreamVersion': VERSION, 'commit': REVISION, 'buildId': BUILD_ID,
             'windowsValidated': False, 'clientValidated': False, 'files': files,
-            'redistributionAuthorized': os.environ.get('REDISTRIBUTION_AUTHORIZED') == 'true',
+            'redistributionAuthorized': scope == 'non-commercial', 'redistributionScope': scope,
+            'sources': {'artifact': 'BIMLeman-Native-Veyon-Sources', 'runUrl': run_url, 'files': source_files},
             'installer': f'BIMLeman-{BUILD_ID}-setup.exe', 'signed': False}
 (OUT/'manifest.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False))
 print('Native candidate staged. Windows tests must still validate it.')

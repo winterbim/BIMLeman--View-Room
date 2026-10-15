@@ -4,10 +4,14 @@ ressources Windows, diagnostic de démarrage et installation parallèle.
 Les auteurs d'origine ne garantissent ni ne soutiennent cette version personnalisée.
 Veyon : Copyright (c) 2004-2026 Tobias Junghans / Veyon Solutions.
 Licence GNU GPL version 2 ou ultérieure ; voir COPYING et le dialogue À propos.
-Sources correspondantes et scripts : archives *sources.tar.gz jointes au candidat.
+Sources correspondantes et scripts : voir SOURCES.txt, même run que le candidat.
 Bibliothèques tierces : voir licenses/ et les archives de sources de dépendances.
 La licence propriétaire de l'ancien projet Tauri ne s'applique pas à cette dérivation.
-Interception : licence annoncée LGPLv3 pour un usage non commercial ; usage commercial
-soumis aux conditions de son auteur. Redistribution commerciale non autorisée par défaut.
-Ses pilotes ne sont pas installés. Voir les licences exactes dans les sources jointes.
+Interception : Copyright (c) 2008-2018 Francisco Lopes. Bibliothèque LGPLv3 dans
+le cadre strictement non commercial déclaré par le demandeur le 15 octobre 2026.
+Usage commercial soumis aux conditions distinctes de son auteur, non acquis ici.
+Ses pilotes ne sont pas installés. Voir licenses/interception/ (LGPLv3, GPLv3 et
+conditions de l'auteur). La bibliothèque est liée dynamiquement et remplaçable.
+Les droits de modification, de remplacement et de rétro-ingénierie nécessaires
+au débogage de ces modifications ne sont pas restreints par cette distribution.
 Aucune marque, licence ou attribution juridique d'origine n'est supprimée.

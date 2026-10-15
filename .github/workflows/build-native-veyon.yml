@@ -17,7 +17,7 @@ jobs:
       PYTHONUTF8: '1'
       CI_COMMIT_TAG: v4.11.3
       VEYON_SOURCE: upstream-veyon
-      REDISTRIBUTION_AUTHORIZED: ${{ vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'authorized' }}
+      REDISTRIBUTION_SCOPE: ${{ vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Checkout pinned native sources
@@ -72,18 +72,27 @@ jobs:
       - name: Test isolated Windows installation and rollback
         shell: pwsh
         run: ./native-update/Test-NativeInstaller.ps1
-      - name: Upload native installer, runtime and corresponding sources
-        if: vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'authorized'
+      - name: Publish corresponding sources before the binary candidate
+        if: vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'non-commercial'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: BIMLeman-Native-Veyon-Sources
+          path: native-output/*sources.tar.gz
+          retention-days: 90
+          compression-level: 0
+          if-no-files-found: error
+      - name: Upload non-commercial native pilot installer
+        if: vars.BIMLEMAN_INTERCEPTION_REDISTRIBUTION == 'non-commercial'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: BIMLeman-Native-Veyon-Candidate
           path: |
             native-output/*setup.exe
-            native-output/*sources.tar.gz
             native-output/manifest.json
             native-output/Install-Safe.ps1
             native-output/Uninstall-Safe.ps1
             native-output/Get-VeyonInstallation.ps1
+          retention-days: 90
           if-no-files-found: error
       - name: Preserve complete build diagnostics
         if: always()
