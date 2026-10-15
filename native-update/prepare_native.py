@@ -18,6 +18,7 @@ def main():
     root = Path(a.source).resolve()
     # Validate ALL patch anchors before writing anything.
     edits = {
+        'master/src/MainWindow.cpp': [('closing Veyon.', 'closing BIMLéman View Room.')],
         '3rdparty/ultravnc/winvnc/winvnc/vnckeymap.cpp': [('long childCount = 0L;', ''), ('childCount++;', '')],
         'master/src/SlideshowPanel.cpp': [('Veyon Master – Slideshow', 'BIMLéman View Room – Slideshow')],
         'master/src/ComputerZoomWidget.cpp': [('%1 - Veyon', '%1 - BIMLéman View Room'),
@@ -36,6 +37,7 @@ def main():
         'master/src/main.cpp': [
             ('#include <QSplashScreen>', '#include <QSplashScreen>\n#include <QIcon>\n#include <QDir>\n#include <QFile>\n#include <QJsonDocument>\n#include <QJsonObject>\n#include <QJsonArray>\n#include "FeatureManager.h"\n#include <QTimer>\n#include <QCryptographicHash>'),
             ('\tsplashScreen.show();', '''\tapp.setWindowIcon( QIcon( QStringLiteral(":/master/bimleman-icon.png") ) );
+\tapp.setApplicationDisplayName( QStringLiteral("BIMLéman View Room") );
 \tconst bool selfTest = app.arguments().contains(QStringLiteral("--bimleman-self-test"));
 \tconst QString evidenceDir = qEnvironmentVariable("BIMLEMAN_EVIDENCE_DIR");
 \tif (selfTest && evidenceDir.isEmpty()) { return 2; }

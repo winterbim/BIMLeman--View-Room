@@ -6878,6 +6878,24 @@ index bf5a4a6..95df820 100644
  															  m_vncView->computerControlInterface()->computerName()));
  	}
  }
+diff --git a/master/src/MainWindow.cpp b/master/src/MainWindow.cpp
+index 6a71be8..39bacb1 100644
+--- a/master/src/MainWindow.cpp
++++ b/master/src/MainWindow.cpp
+@@ -1,3 +1,4 @@
++// Modified by BIMLéman View Room on 2026-10-15: native branding/build compatibility.
+ /*
+  * MainWindow.cpp - implementation of MainWindow class
+  *
+@@ -371,7 +372,7 @@ void MainWindow::closeEvent( QCloseEvent* event )
+ 		const Feature& activeFeature = VeyonCore::featureManager().feature( m_master.currentMode() );
+ 
+ 		QMessageBox::information(this, tr("Feature active"),
+-								 tr("The feature \"%1\" is still active. Please stop it before closing Veyon.")
++								 tr("The feature \"%1\" is still active. Please stop it before closing BIMLéman View Room.")
+ 								 .arg(activeFeature.displayName()));
+ 		event->ignore();
+ 		return;
 diff --git a/master/src/MainWindow.ui b/master/src/MainWindow.ui
 index 6b92b6f..88df32c 100644
 --- a/master/src/MainWindow.ui
@@ -6931,7 +6949,7 @@ index 53ebcee..b139638 100644
  	}
  	else
 diff --git a/master/src/main.cpp b/master/src/main.cpp
-index 6c4f93f..7a80916 100644
+index 6c4f93f..2e3fc95 100644
 --- a/master/src/main.cpp
 +++ b/master/src/main.cpp
 @@ -1,3 +1,4 @@
@@ -6955,11 +6973,12 @@ index 6c4f93f..7a80916 100644
  
  #include "DocumentationFigureCreator.h"
  #include "VeyonMaster.h"
-@@ -48,7 +58,16 @@ int main( int argc, char** argv )
+@@ -48,7 +58,17 @@ int main( int argc, char** argv )
  #endif
  
  	QSplashScreen splashScreen( QPixmap( QStringLiteral(":/master/splash.png") ) );
 +	app.setWindowIcon( QIcon( QStringLiteral(":/master/bimleman-icon.png") ) );
++	app.setApplicationDisplayName( QStringLiteral("BIMLéman View Room") );
 +	const bool selfTest = app.arguments().contains(QStringLiteral("--bimleman-self-test"));
 +	const QString evidenceDir = qEnvironmentVariable("BIMLEMAN_EVIDENCE_DIR");
 +	if (selfTest && evidenceDir.isEmpty()) { return 2; }
@@ -6972,7 +6991,7 @@ index 6c4f93f..7a80916 100644
  
  	if( MainWindow::initAuthentication() == false ||
  			MainWindow::initAccessControl() == false )
-@@ -63,5 +82,29 @@ int main( int argc, char** argv )
+@@ -63,5 +83,29 @@ int main( int argc, char** argv )
  
  	masterCore.mainWindow()->show();
  
