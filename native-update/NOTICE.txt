@@ -7,7 +7,7 @@ Licence GNU GPL version 2 ou ultérieure ; voir COPYING et le dialogue À propos
 Sources correspondantes et scripts : voir SOURCES.txt, même run que le candidat.
 Bibliothèques tierces : voir licenses/ et les archives de sources de dépendances.
 La licence propriétaire de l'ancien projet Tauri ne s'applique pas à cette dérivation.
-Interception : Copyright (c) 2008-2018 Francisco Lopes. Bibliothèque LGPLv3 dans
+Interception : Copyright (c) 2008 Francisco Lopes. Bibliothèque LGPLv3 dans
 le cadre strictement non commercial déclaré par le demandeur le 15 octobre 2026.
 Usage commercial soumis aux conditions distinctes de son auteur, non acquis ici.
 Ses pilotes ne sont pas installés. Voir licenses/interception/ (LGPLv3, GPLv3 et

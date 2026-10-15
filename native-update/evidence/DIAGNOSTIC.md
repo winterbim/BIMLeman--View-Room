@@ -1,5 +1,9 @@
 # Preuves du diagnostic natif — 15 octobre 2026
 
+Ce registre retrace les états successifs ; la version 4.11.3 et l'usage strictement
+non commercial ont ensuite été déclarés par le demandeur. La politique courante
+est documentée dans `../distribution-policy.json` et `../README.md`.
+
 Compte GitHub `winterbim` authentifié ; dépôt initial propre, branche locale main.
 Fetch effectué puis suivi de `origin/feature/veyon-native-bimleman` sans écrasement.
 
@@ -66,3 +70,18 @@ L'ajout QML sert à Linguist ; l'application conserve le parcours natif C++/Qt.
 Les journaux complets et artefacts des runs sont accessibles dans GitHub Actions.
 La réussite du premier Master n'est pas présentée comme une réussite des tests
 GUI, du paquet complet ou du réseau client.
+
+## Recette du script pilote après clarification de l'usage
+
+Run [38760750742](https://github.com/winterbim/BIMLeman--View-Room/actions/runs/38760750742) :
+compilation, packaging, démarrage natif et premier retour au Master officiel
+réussis. La nouvelle vérification de porte production a échoué car le dossier
+candidat subsistait après désinstallation. NSIS documente que `_?=` désactive
+l'exécution temporaire nécessaire à l'auto-suppression ; le script attendait bien
+la fin mais ne supprimait pas ensuite cet exécutable connu. Correction : supprimer
+uniquement `Uninstall.exe` après sa sortie, puis le dossier seulement s'il est vide.
+Les fichiers ajoutés par l'utilisateur ne sont jamais supprimés récursivement.
+Référence : https://nsis.sourceforge.io/Auto-uninstall_old_before_installing_new .
+Le test exige désormais explicitement l'absence du dossier, avant la seconde
+installation. Les codes Robocopy de réussite 0 à 7 sont également normalisés
+après contrôle, sans ignorer les échecs de sauvegarde (codes >= 8).

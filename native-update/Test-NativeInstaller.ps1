@@ -94,6 +94,10 @@ Set-Content $sentinel 'must survive'
 & "$out/Uninstall-Safe.ps1" -BuildId $manifest.buildId
 if (-not (Test-Path $sentinel) -or (Get-Content $sentinel) -ne 'must survive') { throw 'Rollback deleted shared Veyon data.' }
 if (Test-Path $master) { throw 'Rollback left native Master installed.' }
+if (Test-Path $installed) {
+    Get-ChildItem $installed -Force -Recurse | Select-Object Name, Length | ConvertTo-Json | Set-Content (Join-Path $evidence 'rollback-remainders.json')
+    throw 'Rollback left a candidate directory; see rollback-remainders.json.'
+}
 foreach ($file in $originalHashes.Keys) {
     if (-not (Test-Path $file) -or (Get-FileHash $file -Algorithm SHA256).Hash -ne $originalHashes[$file]) { throw "Official Veyon file changed: $file" }
 }

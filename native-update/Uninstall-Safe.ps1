@@ -7,4 +7,10 @@ $running = @(Get-Process -Name veyon-master,veyon-server,veyon-worker,veyon-cli,
 if ($running.Count) { throw 'Fermez le candidat avant sa désinstallation.' }
 $result = Start-Process -FilePath $exe -ArgumentList @('/S', "_?=$target") -Wait -PassThru
 if ($result.ExitCode -ne 0 -or (Test-Path (Join-Path $target 'veyon-master.exe'))) { throw 'Désinstallation incomplète.' }
+# _?= makes NSIS wait in place, so Windows keeps its executable locked until exit.
+# Delete only that known executable now; preserve any unexpected user-added file.
+if (Test-Path -LiteralPath $exe) { Remove-Item -LiteralPath $exe -Force }
+if ((Test-Path -LiteralPath $target) -and @(Get-ChildItem -LiteralPath $target -Force).Count -eq 0) {
+    Remove-Item -LiteralPath $target
+}
 Write-Host 'Candidat retiré. Utilisez le raccourci Veyon original. Les sauvegardes et paramètres partagés sont conservés.'

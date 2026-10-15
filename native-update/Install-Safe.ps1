@@ -39,6 +39,8 @@ function Backup-Tree([string]$Source, [string]$Name) {
     if ($links.Count) { throw "Lien de système de fichiers dans $Source : sauvegarde manuelle requise." }
     & robocopy $Source (Join-Path $backup $Name) /E /COPY:DAT /DCOPY:DAT /XJ /R:1 /W:1 /NFL /NDL /NJH /NJS | Out-Null
     if ($LASTEXITCODE -ge 8) { throw "Sauvegarde incomplète de $Source. Installation refusée." }
+    # Robocopy 0..7 are successful outcomes, not PowerShell/CI failure exit codes.
+    $global:LASTEXITCODE = 0
 }
 Backup-Tree $existing.Directory 'original-installation'
 Backup-Tree $existing.ProgramData 'program-data'
