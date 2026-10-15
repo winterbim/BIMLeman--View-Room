@@ -1,0 +1,50 @@
+name: Build BIMLeman Native Veyon Master
+on:
+  push:
+    branches: [feature/veyon-native-bimleman]
+    paths:
+      - 'native-update/prepare_native.py'
+      - '.github/workflows/build-native-veyon.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Veyon build prerequisites
+        shell: pwsh
+        run: |
+          choco install ninja cmake -y --no-progress
+          python -m pip install Pillow
+      - name: Checkout Veyon
+        shell: pwsh
+        run: |
+          git clone --recurse-submodules --depth 1 https://github.com/veyon/veyon.git upstream-veyon
+      - name: Prepare BIMLeman native branding
+        shell: pwsh
+        run: |
+          python native-update/prepare_native.py --source upstream-veyon --logo assets/brand/BIMLeman-View-Room-logo.png --report native-update/native-branding-report.json
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.8.3'
+          arch: win64_msvc2022_64
+          modules: 'qtsvg qtimageformats'
+      - name: Configure native Veyon
+        shell: pwsh
+        run: |
+          cmake -S upstream-veyon -B native-build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH="$env:Qt6_DIR"
+      - name: Compile native Veyon Master
+        shell: pwsh
+        run: cmake --build native-build --config Release --target veyon-master --parallel 2
+      - name: Upload native binary and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: BIMLeman-Native-Veyon-Build
+          path: |
+            native-update/native-branding-report.json
+            native-build/**/veyon-master.exe
+          if-no-files-found: warn
