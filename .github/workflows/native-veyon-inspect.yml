@@ -1,0 +1,24 @@
+name: Inspect native Veyon branding
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-native:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/veyon-native-bimleman
+      - name: Checkout upstream Veyon source
+        shell: pwsh
+        run: git clone --depth 1 --recurse-submodules https://github.com/veyon/veyon.git upstream-veyon
+      - name: Inspect native Master UI
+        shell: pwsh
+        run: python native-update/prepare_native.py --source upstream-veyon --logo assets/brand/BIMLeman-View-Room-logo.png --report native-update/native-branding-report.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-branding-inspection
+          path: native-update/native-branding-report.json
+          if-no-files-found: warn
